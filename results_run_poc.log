@@ -1,0 +1,166 @@
+=== run_poc: 36 runs planned across scenarios=['easy', 'medium', 'hard'] ===
+
+--- [1/36] method=random_walk scenario=easy seed=0 (elapsed 0s) ---
+[random_walk/easy/seed0] done. VDR=0.504 cov=0.348
+
+--- [2/36] method=greedy scenario=easy seed=0 (elapsed 2s) ---
+[greedy/easy/seed0] done. VDR=0.529 cov=0.399
+
+--- [3/36] method=maddpg scenario=easy seed=0 (elapsed 4s) ---
+[maddpg/easy/seed0] step=4096/8000 VDR=0.000 cov=0.025 (4s)
+[maddpg/easy/seed0] step=8192/8000 VDR=0.229 cov=0.083 (8s)
+[maddpg/easy/seed0] DONE. Final VDR=0.123 cov=0.083 total_time=12s
+
+--- [4/36] method=maddpg scenario=easy seed=1 (elapsed 16s) ---
+[maddpg/easy/seed1] step=4096/8000 VDR=0.146 cov=0.083 (5s)
+[maddpg/easy/seed1] step=8192/8000 VDR=0.100 cov=0.184 (13s)
+[maddpg/easy/seed1] DONE. Final VDR=0.129 cov=0.188 total_time=21s
+
+--- [5/36] method=maddpg scenario=easy seed=2 (elapsed 37s) ---
+[maddpg/easy/seed2] step=4096/8000 VDR=0.083 cov=0.074 (6s)
+[maddpg/easy/seed2] step=8192/8000 VDR=0.000 cov=0.083 (15s)
+[maddpg/easy/seed2] DONE. Final VDR=0.000 cov=0.083 total_time=21s
+
+--- [6/36] method=mappo_mlp scenario=easy seed=0 (elapsed 58s) ---
+[mappo_mlp/easy/seed0] step=4096/8000 VDR=0.163 cov=0.135 (11s)
+[mappo_mlp/easy/seed0] step=8192/8000 VDR=0.333 cov=0.135 (23s)
+[mappo_mlp/easy/seed0] DONE. Final VDR=0.108 cov=0.135 total_time=30s
+
+--- [7/36] method=mappo_mlp scenario=easy seed=1 (elapsed 88s) ---
+[mappo_mlp/easy/seed1] step=4096/8000 VDR=0.000 cov=0.026 (9s)
+[mappo_mlp/easy/seed1] step=8192/8000 VDR=0.133 cov=0.121 (21s)
+[mappo_mlp/easy/seed1] DONE. Final VDR=0.142 cov=0.121 total_time=27s
+
+--- [8/36] method=mappo_mlp scenario=easy seed=2 (elapsed 115s) ---
+[mappo_mlp/easy/seed2] step=4096/8000 VDR=0.000 cov=0.026 (9s)
+[mappo_mlp/easy/seed2] step=8192/8000 VDR=0.217 cov=0.143 (21s)
+[mappo_mlp/easy/seed2] DONE. Final VDR=0.073 cov=0.143 total_time=28s
+
+--- [9/36] method=mappo_gcn scenario=easy seed=0 (elapsed 142s) ---
+[mappo_gcn/easy/seed0] step=4096/8000 VDR=0.062 cov=0.140 (19s)
+[mappo_gcn/easy/seed0] step=8192/8000 VDR=0.062 cov=0.038 (48s)
+[mappo_gcn/easy/seed0] DONE. Final VDR=0.000 cov=0.039 total_time=72s
+
+--- [10/36] method=mappo_gcn scenario=easy seed=1 (elapsed 215s) ---
+[mappo_gcn/easy/seed1] step=4096/8000 VDR=0.000 cov=0.026 (19s)
+[mappo_gcn/easy/seed1] step=8192/8000 VDR=0.050 cov=0.026 (45s)
+[mappo_gcn/easy/seed1] DONE. Final VDR=0.000 cov=0.026 total_time=70s
+
+--- [11/36] method=mappo_gcn scenario=easy seed=2 (elapsed 285s) ---
+[mappo_gcn/easy/seed2] step=4096/8000 VDR=0.000 cov=0.026 (20s)
+[mappo_gcn/easy/seed2] step=8192/8000 VDR=0.000 cov=0.028 (46s)
+[mappo_gcn/easy/seed2] DONE. Final VDR=0.000 cov=0.027 total_time=68s
+
+--- [12/36] method=mappo_gat scenario=easy seed=0 (elapsed 352s) ---
+[mappo_gat/easy/seed0] step=4096/8000 VDR=0.163 cov=0.121 (25s)
+[mappo_gat/easy/seed0] step=8192/8000 VDR=0.333 cov=0.121 (56s)
+[mappo_gat/easy/seed0] DONE. Final VDR=0.108 cov=0.121 total_time=80s
+
+--- [13/36] method=mappo_gat scenario=easy seed=1 (elapsed 433s) ---
+[mappo_gat/easy/seed1] step=4096/8000 VDR=0.062 cov=0.140 (29s)
+[mappo_gat/easy/seed1] step=8192/8000 VDR=0.133 cov=0.121 (63s)
+[mappo_gat/easy/seed1] DONE. Final VDR=0.142 cov=0.121 total_time=86s
+
+--- [14/36] method=mappo_gat scenario=easy seed=2 (elapsed 519s) ---
+[mappo_gat/easy/seed2] step=4096/8000 VDR=0.113 cov=0.143 (25s)
+[mappo_gat/easy/seed2] step=8192/8000 VDR=0.000 cov=0.197 (60s)
+[mappo_gat/easy/seed2] DONE. Final VDR=0.150 cov=0.200 total_time=86s
+
+--- [15/36] method=gnn_mappo scenario=easy seed=0 (elapsed 605s) ---
+[gnn_mappo/easy/seed0] step=4096/8000 VDR=0.000 cov=0.138 (32s)
+[gnn_mappo/easy/seed0] step=8192/8000 VDR=0.312 cov=0.135 (67s)
+[gnn_mappo/easy/seed0] DONE. Final VDR=0.156 cov=0.138 total_time=92s
+
+--- [16/36] method=gnn_mappo scenario=easy seed=1 (elapsed 697s) ---
+[gnn_mappo/easy/seed1] step=4096/8000 VDR=0.229 cov=0.145 (27s)
+[gnn_mappo/easy/seed1] step=8192/8000 VDR=0.183 cov=0.140 (67s)
+[gnn_mappo/easy/seed1] DONE. Final VDR=0.142 cov=0.140 total_time=94s
+
+--- [17/36] method=gnn_mappo scenario=easy seed=2 (elapsed 791s) ---
+[gnn_mappo/easy/seed2] step=4096/8000 VDR=0.000 cov=0.030 (30s)
+[gnn_mappo/easy/seed2] step=8192/8000 VDR=0.050 cov=0.087 (70s)
+[gnn_mappo/easy/seed2] DONE. Final VDR=0.098 cov=0.088 total_time=98s
+
+--- [18/36] method=random_walk scenario=medium seed=0 (elapsed 889s) ---
+[random_walk/medium/seed0] done. VDR=0.189 cov=0.152
+
+--- [19/36] method=greedy scenario=medium seed=0 (elapsed 892s) ---
+[greedy/medium/seed0] done. VDR=0.124 cov=0.167
+
+--- [20/36] method=maddpg scenario=medium seed=0 (elapsed 896s) ---
+[maddpg/medium/seed0] step=5120/10000 VDR=0.000 cov=0.064 (8s)
+[maddpg/medium/seed0] step=10240/10000 VDR=0.094 cov=0.036 (26s)
+[maddpg/medium/seed0] DONE. Final VDR=0.000 cov=0.027 total_time=38s
+
+--- [21/36] method=maddpg scenario=medium seed=1 (elapsed 934s) ---
+[maddpg/medium/seed1] step=5120/10000 VDR=0.125 cov=0.060 (11s)
+[maddpg/medium/seed1] step=10240/10000 VDR=0.071 cov=0.050 (26s)
+[maddpg/medium/seed1] DONE. Final VDR=0.000 cov=0.042 total_time=37s
+
+--- [22/36] method=mappo_mlp scenario=medium seed=0 (elapsed 971s) ---
+[mappo_mlp/medium/seed0] step=5120/10000 VDR=0.081 cov=0.078 (22s)
+[mappo_mlp/medium/seed0] step=10240/10000 VDR=0.098 cov=0.050 (46s)
+[mappo_mlp/medium/seed0] DONE. Final VDR=0.049 cov=0.064 total_time=59s
+
+--- [23/36] method=mappo_mlp scenario=medium seed=1 (elapsed 1030s) ---
+[mappo_mlp/medium/seed1] step=5120/10000 VDR=0.115 cov=0.065 (18s)
+[mappo_mlp/medium/seed1] step=10240/10000 VDR=0.036 cov=0.051 (42s)
+[mappo_mlp/medium/seed1] DONE. Final VDR=0.000 cov=0.058 total_time=56s
+
+--- [24/36] method=mappo_gcn scenario=medium seed=0 (elapsed 1086s) ---
+[mappo_gcn/medium/seed0] step=5120/10000 VDR=0.000 cov=0.069 (30s)
+[mappo_gcn/medium/seed0] step=10240/10000 VDR=0.296 cov=0.120 (73s)
+[mappo_gcn/medium/seed0] DONE. Final VDR=0.000 cov=0.100 total_time=98s
+
+--- [25/36] method=mappo_gcn scenario=medium seed=1 (elapsed 1184s) ---
+[mappo_gcn/medium/seed1] step=5120/10000 VDR=0.125 cov=0.060 (35s)
+[mappo_gcn/medium/seed1] step=10240/10000 VDR=0.179 cov=0.062 (77s)
+[mappo_gcn/medium/seed1] DONE. Final VDR=0.000 cov=0.062 total_time=101s
+
+--- [26/36] method=mappo_gat scenario=medium seed=0 (elapsed 1285s) ---
+[mappo_gat/medium/seed0] step=5120/10000 VDR=0.000 cov=0.072 (47s)
+[mappo_gat/medium/seed0] step=10240/10000 VDR=0.196 cov=0.144 (107s)
+[mappo_gat/medium/seed0] DONE. Final VDR=0.062 cov=0.119 total_time=137s
+
+--- [27/36] method=mappo_gat scenario=medium seed=1 (elapsed 1422s) ---
+[mappo_gat/medium/seed1] step=5120/10000 VDR=0.103 cov=0.028 (46s)
+[mappo_gat/medium/seed1] step=10240/10000 VDR=0.071 cov=0.057 (110s)
+[mappo_gat/medium/seed1] DONE. Final VDR=0.000 cov=0.045 total_time=143s
+
+--- [28/36] method=gnn_mappo scenario=medium seed=0 (elapsed 1565s) ---
+[gnn_mappo/medium/seed0] step=5120/10000 VDR=0.000 cov=0.043 (47s)
+[gnn_mappo/medium/seed0] step=10240/10000 VDR=0.125 cov=0.034 (106s)
+[gnn_mappo/medium/seed0] DONE. Final VDR=0.000 cov=0.023 total_time=143s
+
+--- [29/36] method=gnn_mappo scenario=medium seed=1 (elapsed 1708s) ---
+[gnn_mappo/medium/seed1] step=5120/10000 VDR=0.062 cov=0.068 (51s)
+[gnn_mappo/medium/seed1] step=10240/10000 VDR=0.107 cov=0.063 (110s)
+[gnn_mappo/medium/seed1] DONE. Final VDR=0.056 cov=0.083 total_time=143s
+
+--- [30/36] method=random_walk scenario=hard seed=0 (elapsed 1851s) ---
+[random_walk/hard/seed0] done. VDR=0.000 cov=0.047
+
+--- [31/36] method=greedy scenario=hard seed=0 (elapsed 1874s) ---
+[greedy/hard/seed0] done. VDR=0.042 cov=0.056
+
+--- [32/36] method=maddpg scenario=hard seed=0 (elapsed 1892s) ---
+[maddpg/hard/seed0] step=4096/4000 VDR=0.065 cov=0.038 (57s)
+[maddpg/hard/seed0] DONE. Final VDR=0.031 cov=0.031 total_time=121s
+
+--- [33/36] method=mappo_mlp scenario=hard seed=0 (elapsed 2013s) ---
+[mappo_mlp/hard/seed0] step=4096/4000 VDR=0.120 cov=0.029 (74s)
+[mappo_mlp/hard/seed0] DONE. Final VDR=0.031 cov=0.028 total_time=141s
+
+--- [34/36] method=mappo_gcn scenario=hard seed=0 (elapsed 2155s) ---
+[mappo_gcn/hard/seed0] step=4096/4000 VDR=0.231 cov=0.034 (82s)
+[mappo_gcn/hard/seed0] DONE. Final VDR=0.062 cov=0.024 total_time=161s
+
+--- [35/36] method=mappo_gat scenario=hard seed=0 (elapsed 2315s) ---
+[mappo_gat/hard/seed0] step=4096/4000 VDR=0.000 cov=0.004 (97s)
+[mappo_gat/hard/seed0] DONE. Final VDR=0.031 cov=0.004 total_time=186s
+
+--- [36/36] method=gnn_mappo scenario=hard seed=0 (elapsed 2502s) ---
+[gnn_mappo/hard/seed0] step=4096/4000 VDR=0.120 cov=0.029 (100s)
+[gnn_mappo/hard/seed0] DONE. Final VDR=0.031 cov=0.028 total_time=185s
+
+=== run_poc DONE: 36 runs in 2687s ===
