@@ -1,0 +1,22 @@
+# Easy scenario (4 UAV, 50x50) — research-scale budget (see PLAN.md sec 0/6,
+# EXPERIMENT_LOG.md Giai doan 6). ~500k steps/run, ~290 steps/s single-thread.
+# num_seeds raised 3->5 for adequate statistical power (Giai doan 5 found no
+# significant differences between architectures with only 2-3 seeds).
+scenario: easy
+total_env_steps: 500000
+rollout_len: 512
+eval_interval_steps: 25000
+n_eval_episodes: 30
+n_eval_episodes_intermediate: 6
+hidden_dim: 64
+lr: 0.0003
+gamma: 0.99
+gae_lambda: 0.95
+clip_eps: 0.2
+ppo_epochs: 4
+minibatch_size: 256
+entropy_coef: 0.01
+value_coef: 0.5  # gnn_mappo hoat dong tot hon voi vc=0.5 (xem EXPERIMENT_LOG.md Giai doan 7 - da thu vc=0.1, khong cai thien GNN-MAPPO)
+max_grad_norm: 0.5
+critic_pool: mean
+num_seeds: 5

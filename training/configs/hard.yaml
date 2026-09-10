@@ -1,0 +1,21 @@
+# Hard scenario (16 UAV, 200x200) — research-scale budget (see PLAN.md sec 0/6)
+# ~200k steps/run x 2 seeds x 5 trainable methods, ~59 steps/s single-thread
+# -> ~56 min training + ~9 min eval per run.
+scenario: hard
+total_env_steps: 200000
+rollout_len: 512
+eval_interval_steps: 20000
+n_eval_episodes: 20
+n_eval_episodes_intermediate: 4
+hidden_dim: 64
+lr: 0.0003
+gamma: 0.99
+gae_lambda: 0.95
+clip_eps: 0.2
+ppo_epochs: 3
+minibatch_size: 256
+entropy_coef: 0.01
+value_coef: 0.5  # gnn_mappo hoat dong tot hon voi vc=0.5 (xem EXPERIMENT_LOG.md Giai doan 7 - da thu vc=0.1, khong cai thien GNN-MAPPO)
+max_grad_norm: 0.5
+critic_pool: mean
+num_seeds: 5
