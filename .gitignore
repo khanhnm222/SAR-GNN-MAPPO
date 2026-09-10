@@ -5,11 +5,11 @@ ___pycache__/
 venv/
 env/
 
-ressults/
+results/
 results_*/
 
 web/node_modules/
-wweb/.next/
+web/.next/
 web/out/
 
 
