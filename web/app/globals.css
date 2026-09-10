@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+:root {
+  --background: #05070d;
+  --panel: #0a0e18;
+  --panel-soft: #0d1220;
+  --panel-border: #1b2436;
+  --panel-border-strong: #2a3650;
+  --accent: #22d3ee;
+  --accent-soft: rgba(34, 211, 238, 0.12);
+  --accent-strong: #67e8f9;
+  --foreground: #e7edf6;
+  --muted: #6b7789;
+  --muted-strong: #94a3b8;
+  --warn: #f2b84b;
+  --danger: #f87171;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+* {
+  border-color: var(--panel-border);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+::-webkit-scrollbar {
+  height: 8px;
+  width: 8px;
+}
+::-webkit-scrollbar-thumb {
+  background: #263248;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--panel-border-strong);
+}
+
+.label-caps {
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* subtle grid backdrop, echoing a 3D-editor viewport (no mask/vignette —
+   that used to fade content itself out at the edges, not just the backdrop) */
+.viewport-grid {
+  position: relative;
+  background-color: var(--background);
+  background-image:
+    linear-gradient(rgba(34, 211, 238, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(34, 211, 238, 0.06) 1px, transparent 1px);
+  background-size: 42px 42px;
+  background-position: center;
+}
+
+.glow-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, rgba(34, 211, 238, 0.45), transparent);
+}
