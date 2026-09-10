@@ -1,0 +1,11 @@
+gymnasium
+pettingzoo
+torch
+torch-geometric
+numpy
+pandas
+scipy
+matplotlib
+seaborn
+pyyaml
+tqdm
