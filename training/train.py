@@ -26,6 +26,7 @@ from evaluation.controllers import HeuristicController, MADDPGController, MAPPOC
 from evaluation.evaluate import evaluate_policy
 from models import build_encoder
 from sar_env import make_env
+from sar_env.rewards import RewardWeights
 from sar_env.scenarios import LEGACY_OVERRIDES
 from training.logger import RunLogger
 
@@ -78,9 +79,12 @@ def save_trajectory_sample(env_factory, controller, logger: RunLogger, seed: int
     logger.save_trajectory(frames, terrain_occupancy=terrain_occupancy)
 
 
+REWARD_COMPONENTS = ("cover", "victim", "collision", "energy")
+
+
 def run(method: str, scenario: str, seed: int, out_dir: str = "results",
         config_path: str | None = None, total_env_steps_override: int | None = None,
-        legacy_env: bool = False):
+        legacy_env: bool = False, reward_zero: str | None = None):
     cfg_path = config_path or f"training/configs/{scenario}.yaml"
     with open(cfg_path, "r", encoding="utf-8") as f:
         cfg = yaml.safe_load(f)
@@ -89,6 +93,13 @@ def run(method: str, scenario: str, seed: int, out_dir: str = "results",
 
     seed_everything(seed)
     env_overrides = dict(LEGACY_OVERRIDES) if legacy_env else {}
+    if reward_zero:
+        # Ablation ham thuong (de cuong, muc 1.5.4): bo dung MOT thanh phan bang
+        # cach dat trong so cua no = 0, moi thu khac giu nguyen (ke ca doi tuong
+        # danh gia, vi cac chi so danh gia khong doc reward).
+        if reward_zero not in REWARD_COMPONENTS:
+            raise ValueError(f"--reward-zero must be one of {REWARD_COMPONENTS}")
+        env_overrides["reward_weights"] = RewardWeights(**{reward_zero: 0.0})
 
     def env_factory(seed):
         return make_env(scenario, seed=seed, **env_overrides)
@@ -101,6 +112,7 @@ def run(method: str, scenario: str, seed: int, out_dir: str = "results",
     logger.meta["legacy_env"] = legacy_env
     logger.meta["obs_dim"] = obs_dim
     logger.meta["seeded"] = True
+    logger.meta["reward_zero"] = reward_zero
     tag = f"[{method}/{scenario}/seed{seed}]"
 
     if method in HEURISTIC_METHODS:
@@ -163,6 +175,12 @@ def run(method: str, scenario: str, seed: int, out_dir: str = "results",
             print(f"{tag} step={trainer.global_step}/{total_steps} "
                   f"VDR={stats['eval_vdr']:.3f} cov={stats['eval_coverage']:.3f} "
                   f"({stats['elapsed']:.0f}s)")
+            # Checkpoint tam thoi sau moi lan danh gia trung gian (23/09/2026): mot lan
+            # khoi dong lai Windows da giet lượt DGAT/Hard 2M ngay truoc danh gia cuoi va
+            # mat 22 gio vi policy.pt chi duoc luu o cuoi. Ghi file khong dung RNG nen
+            # khong doi ket qua; file cuoi cung van la policy.pt.
+            if method != "maddpg":
+                logger.save_checkpoint(trainer.policy.state_dict(), name="policy_latest.pt")
             next_eval += eval_interval
 
         logger.log_iteration(stats)
@@ -195,9 +213,11 @@ def main():
     parser.add_argument("--total_env_steps", type=int, default=None)
     parser.add_argument("--legacy-env", action="store_true",
                         help="reproduce the Giai doan 6/7 environment + trainer")
+    parser.add_argument("--reward-zero", default=None, choices=list(REWARD_COMPONENTS),
+                        help="ablation ham thuong: dat trong so cua thanh phan nay = 0")
     args = parser.parse_args()
     run(args.method, args.scenario, args.seed, args.out_dir, args.config,
-        args.total_env_steps, args.legacy_env)
+        args.total_env_steps, args.legacy_env, args.reward_zero)
 
 
 if __name__ == "__main__":
