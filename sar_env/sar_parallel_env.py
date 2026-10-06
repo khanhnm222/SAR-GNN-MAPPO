@@ -509,5 +509,8 @@ class SARSwarmEnv(ParallelEnv):
 
 
 def make_env(scenario_name: str, seed: int | None = None, **overrides) -> SARSwarmEnv:
+    # `reward_weights` is an env-level setting (ablation ham thuong, Giai doan 23),
+    # not a ScenarioConfig field, so it is split off before get_scenario().
+    reward_weights = overrides.pop("reward_weights", None)
     scenario = get_scenario(scenario_name, **overrides)
-    return SARSwarmEnv(scenario, seed=seed)
+    return SARSwarmEnv(scenario, seed=seed, reward_weights=reward_weights)
