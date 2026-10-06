@@ -17,6 +17,7 @@ Two corrections (2026-09-03):
 from __future__ import annotations
 
 import json
+import math
 import os
 
 import torch
@@ -43,9 +44,34 @@ def load_policy(checkpoint_path: str, method: str, obs_dim: int, hidden_dim: int
     return policy
 
 
+def density_overrides(base_cfg, n: int) -> dict:
+    """Density-controlled scaling (de cuong muc 1.5.5, che do thu hai cua RQ3).
+
+    Giu mat do UAV va mat do nan nhan tren ban do khong doi khi N thay doi:
+    dien tich ti le voi N (canh ti le sqrt(N / N_train)), so nan nhan ti le voi N.
+    r_comm giu nguyen vi bac trung binh ky vong deg = (N-1) pi r^2 / (W H) chi
+    phu thuoc mat do; r_sense va max_steps giu nguyen. Nho do phep do tach anh
+    huong cua *so luong* UAV khoi anh huong cua *mat do* khong gian, khac voi
+    fixed-map noi them UAV dong nghia voi ban do dong hon.
+    """
+    ratio = n / base_cfg.n_uavs
+    side = math.sqrt(ratio)
+    lo, hi = base_cfg.n_victims_range
+    return dict(
+        width=max(10, int(round(base_cfg.width * side))),
+        height=max(10, int(round(base_cfg.height * side))),
+        n_victims_range=(max(1, int(round(lo * ratio))), max(1, int(round(hi * ratio)))),
+    )
+
+
 def zero_shot_eval(out_dir: str, scenario: str, method: str, seed: int,
                     test_n_values: list[int] | None = None, n_episodes: int = 6,
-                    hidden_dim: int = 64, legacy_env: bool = False) -> dict:
+                    hidden_dim: int = 64, legacy_env: bool = False,
+                    mode: str = "fixed_map") -> dict:
+    """mode = "fixed_map" (ban do giu nguyen, chi N doi) hoac "density"
+    (dien tich va so nan nhan scale theo N, xem `density_overrides`)."""
+    if mode not in ("fixed_map", "density"):
+        raise ValueError(f"mode phai la fixed_map hoac density, nhan {mode!r}")
     ckpt_path = os.path.join(out_dir, scenario, method, f"seed_{seed}", "policy.pt")
     if not os.path.exists(ckpt_path):
         raise FileNotFoundError(ckpt_path)
@@ -57,16 +83,27 @@ def zero_shot_eval(out_dir: str, scenario: str, method: str, seed: int,
 
     test_n_values = test_n_values or DEFAULT_TEST_N.get(scenario, [base_cfg.n_uavs + 2])
     results = {"scenario": scenario, "method": method, "seed": seed,
-               "train_n": base_cfg.n_uavs, "fixed_map": True,
-               "eval_protocol": "sampled", "legacy_env": legacy_env, "by_n": {}}
+               "train_n": base_cfg.n_uavs, "mode": mode, "fixed_map": mode == "fixed_map",
+               "eval_protocol": "sampled", "legacy_env": legacy_env, "by_n": {},
+               "env_by_n": {}}
+
+    # Khoi seed rieng cho tung che do de hai che do khong dung chung ban do test.
+    seed_base = 70_000 if mode == "fixed_map" else 80_000
 
     for n in [base_cfg.n_uavs] + test_n_values:
-        def env_factory(seed, n=n):
-            cfg = get_scenario(scenario, n_uavs=n, **overrides)
+        extra = density_overrides(base_cfg, n) if mode == "density" else {}
+
+        def env_factory(seed, n=n, extra=extra):
+            cfg = get_scenario(scenario, n_uavs=n, **overrides, **extra)
             return SARSwarmEnv(cfg, seed=seed)
 
+        cfg_n = get_scenario(scenario, n_uavs=n, **overrides, **extra)
+        results["env_by_n"][str(n)] = {"width": cfg_n.width, "height": cfg_n.height,
+                                        "n_victims_range": list(cfg_n.n_victims_range),
+                                        "r_comm": cfg_n.r_comm}
         controller = MAPPOController(policy, hidden_dim=hidden_dim, seed=seed)
-        metrics = evaluate_policy(env_factory, controller, n_episodes=n_episodes, seed_start=70_000 + n)
+        metrics = evaluate_policy(env_factory, controller, n_episodes=n_episodes,
+                                  seed_start=seed_base + n)
         results["by_n"][str(n)] = metrics
 
     return results
