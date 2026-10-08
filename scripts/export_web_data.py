@@ -20,6 +20,19 @@ from evaluation.plots import (  # noqa: E402
 from evaluation.statistics import compare_against_baselines  # noqa: E402
 
 SCENARIOS = ["easy", "medium", "hard"]
+
+# Nhan hien thi tren web theo de cuong hieu chinh 10/09/2026: GNN-MAPPO la ten framework,
+# bo ma hoa la mot HO encoder thay the duoc; MAPPO-GCN la phien ban de xuat, GATv2+GRU la MAPPO-DGAT.
+WEB_LABELS = {
+    "random_walk": "Random Walk",
+    "greedy": "Greedy",
+    "maddpg": "MADDPG",
+    "mappo_mlp": "MAPPO-MLP (không đồ thị)",
+    "mappo_gcn": "MAPPO-GCN (đề xuất)",
+    "mappo_gat": "MAPPO-GAT (GATv2, không GRU)",
+    "gnn_mappo": "MAPPO-DGAT (GATv2 + GRU)",
+}
+PROPOSED = "mappo_gcn"
 RESULTS_DIR = "results"          # overridden by --results-dir
 WEB_DATA_DIR = os.path.join("web", "public", "data")
 
@@ -43,7 +56,7 @@ def export_learning_curves(scenario: str) -> dict:
             if points:
                 seed_curves.append({"seed": data["meta"]["seed"], "points": points})
         if seed_curves:
-            out["methods"][method] = {"label": METHOD_LABELS.get(method, method), "seeds": seed_curves}
+            out["methods"][method] = {"label": WEB_LABELS.get(method, method), "seeds": seed_curves}
     return out
 
 
@@ -52,21 +65,30 @@ def export_comparison(scenario: str) -> dict:
     out = {"scenario": scenario, "metric_labels": METRIC_LABELS, "methods": {}}
     for method, per_metric in data.items():
         out["methods"][method] = {
-            "label": METHOD_LABELS.get(method, method),
+            "label": WEB_LABELS.get(method, method),
             "metrics": {m: {"mean": (sum(v) / len(v)) if v else None,
                              "std": (sum((x - sum(v) / len(v)) ** 2 for x in v) / len(v)) ** 0.5 if v else None,
                              "values": v}
                         for m, v in per_metric.items()},
         }
-    # statistical comparison of gnn_mappo vs everything else, per metric
-    if "gnn_mappo" in data:
+    # kiem dinh thong ke: phien ban de xuat (MAPPO-GCN) so voi tung phuong phap con lai, theo chi so
+    out["proposed_method"] = PROPOSED
+    if PROPOSED in data:
         comparisons = {}
         for metric in METRIC_LABELS:
-            target = data["gnn_mappo"].get(metric, [])
-            baselines = {m: data[m][metric] for m in data if m != "gnn_mappo" and data[m].get(metric)}
+            target = data[PROPOSED].get(metric, [])
+            baselines = {m: data[m][metric] for m in data if m != PROPOSED and data[m].get(metric)}
             if target and baselines:
                 comparisons[metric] = compare_against_baselines(target, baselines)
-        out["gnn_mappo_vs_baselines"] = comparisons
+        out["proposed_vs_baselines"] = comparisons
+    # RQ2: co GRU (MAPPO-DGAT) so voi khong GRU (MAPPO-GAT), cung kien truc GATv2
+    if "gnn_mappo" in data and "mappo_gat" in data:
+        gru = {}
+        for metric in METRIC_LABELS:
+            a, b = data["gnn_mappo"].get(metric, []), data["mappo_gat"].get(metric, [])
+            if a and b:
+                gru[metric] = compare_against_baselines(a, {"mappo_gat": b})["mappo_gat"]
+        out["gru_ablation"] = gru
     return out
 
 
@@ -84,21 +106,25 @@ def export_ablation(scenario: str) -> dict | None:
         return None
 
 
-def export_zero_shot(scenario: str) -> dict | None:
-    """Aggregate `zero_shot_all.json` (method -> seed -> N -> metrics) into the
+def export_zero_shot(scenario: str, mode: str = "fixed_map") -> dict | None:
+    """Aggregate `zero_shot_all.json` (fixed-map) hoac `zero_shot_density_all.json`
+    (density-controlled) — method -> seed -> N -> metrics — into the
     cross-architecture shape the web page renders: mean +- std over seeds, per
     method, per swarm size. This is the RQ3 comparison — the earlier per-method
     report could only show one architecture at a time."""
-    path = os.path.join(RESULTS_DIR, scenario, "zero_shot_all.json")
+    fname = "zero_shot_all.json" if mode == "fixed_map" else "zero_shot_density_all.json"
+    path = os.path.join(RESULTS_DIR, scenario, fname)
     if not os.path.isfile(path):
         return None
     with open(path, "r", encoding="utf-8") as f:
         raw = json.load(f)
+    env_path = path.replace(".json", "_env.json")
+    env_by_n = json.load(open(env_path, "r", encoding="utf-8")) if os.path.isfile(env_path) else None
 
     train_n = {"easy": 4, "medium": 8, "hard": 16}.get(scenario)
     ns = sorted({int(n) for m in raw for s in raw[m] for n in raw[m][s]})
-    out = {"scenario": scenario, "train_n": train_n, "ns": ns,
-           "eval_protocol": "sampled", "methods": {}}
+    out = {"scenario": scenario, "train_n": train_n, "ns": ns, "mode": mode,
+           "env_by_n": env_by_n, "eval_protocol": "sampled", "methods": {}}
 
     for method, by_seed in raw.items():
         series = {}
@@ -116,7 +142,7 @@ def export_zero_shot(scenario: str) -> dict | None:
                     stds.append(None)
             series[metric] = {"mean": means, "std": stds}
         series["n_seeds"] = len(by_seed)
-        out["methods"][method] = {"label": METHOD_LABELS.get(method, method), **series}
+        out["methods"][method] = {"label": WEB_LABELS.get(method, method), **series}
     return out
 
 
@@ -131,7 +157,7 @@ def main():
     WEB_DATA_DIR = args.web_data_dir
     print(f"exporting from {RESULTS_DIR} -> {WEB_DATA_DIR}")
 
-    manifest = {"scenarios": [], "methods": METHOD_ORDER, "method_labels": METHOD_LABELS}
+    manifest = {"scenarios": [], "methods": METHOD_ORDER, "method_labels": WEB_LABELS, "proposed_method": PROPOSED}
     for scenario in SCENARIOS:
         scenario_dir = os.path.join(RESULTS_DIR, scenario)
         if not os.path.isdir(scenario_dir):
@@ -148,9 +174,12 @@ def main():
         if ablation:
             _write(os.path.join(WEB_DATA_DIR, scenario, "ablation.json"), ablation)
 
-        zero_shot = export_zero_shot(scenario)
+        zero_shot = export_zero_shot(scenario, "fixed_map")
         if zero_shot:
             _write(os.path.join(WEB_DATA_DIR, scenario, "zero_shot.json"), zero_shot)
+        zero_shot_density = export_zero_shot(scenario, "density")
+        if zero_shot_density:
+            _write(os.path.join(WEB_DATA_DIR, scenario, "zero_shot_density.json"), zero_shot_density)
 
         traj_manifest = {}
         for method in METHOD_ORDER:
