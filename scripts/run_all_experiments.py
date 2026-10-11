@@ -44,6 +44,7 @@ class Task:
     total_env_steps: int | None = None
     extra_tag: str = ""
     legacy_env: bool = False
+    reward_zero: str | None = None
 
     @property
     def name(self) -> str:
@@ -65,13 +66,25 @@ class Task:
             cmd += ["--total_env_steps", str(self.total_env_steps)]
         if self.legacy_env:
             cmd += ["--legacy-env"]
+        if self.reward_zero:
+            cmd += ["--reward-zero", self.reward_zero]
         return cmd
 
 
 def build_plan(scenarios: list[str], methods: list[str], out_dir: str,
                 seeds_override: int | None, longrun: bool, longrun_out_dir: str,
-                legacy_env: bool = False, seed_offset: int = 0) -> list[Task]:
+                legacy_env: bool = False, seed_offset: int = 0,
+                reward_zero: list[str] | None = None) -> list[Task]:
     plan: list[Task] = []
+    if reward_zero:
+        # Ablation ham thuong: mot bien the / thanh phan bi bo, moi bien the co
+        # thu muc rieng <out_dir>/no_<thanh phan>/<scenario>/<method>/seed_<k>.
+        for comp in reward_zero:
+            for t in build_plan(scenarios, methods, os.path.join(out_dir, f"no_{comp}"), seeds_override,
+                                False, longrun_out_dir, legacy_env, seed_offset):
+                t.reward_zero = comp; t.extra_tag = f"no_{comp}"
+                plan.append(t)
+        return plan
     for scenario in scenarios:
         with open(f"training/configs/{scenario}.yaml", "r", encoding="utf-8") as f:
             cfg = yaml.safe_load(f)
@@ -145,10 +158,14 @@ def main():
     parser.add_argument("--legacy-env", action="store_true",
                          help="Tai lap moi truong + trainer cua Giai doan 6/7 (truoc review 03/09/2026)")
     parser.add_argument("--python", default=sys.executable)
+    parser.add_argument("--reward-zero", nargs="+", default=None,
+                         choices=["cover", "victim", "collision", "energy"],
+                         help="Ablation ham thuong: chay moi bien the bo mot thanh phan (thu muc con no_<comp>)")
     args = parser.parse_args()
 
     plan = build_plan(args.scenarios, args.methods, args.out_dir, args.seeds, args.longrun,
-                       args.longrun_out_dir, legacy_env=args.legacy_env, seed_offset=args.seed_offset)
+                       args.longrun_out_dir, legacy_env=args.legacy_env, seed_offset=args.seed_offset,
+                       reward_zero=args.reward_zero)
     if args.steps_override:
         for t in plan:
             t.total_env_steps = args.steps_override
