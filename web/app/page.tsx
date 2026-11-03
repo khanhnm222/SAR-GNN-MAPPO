@@ -51,7 +51,7 @@ export default function DashboardPage() {
           {(["easy", "medium", "hard"] as Scenario[]).map((s) => {
             const loaded = manifest?.scenarios.includes(s);
             return (
-              <div key={s} className="flex items-center justify-between rounded-md bg-white/[0.03] px-2.5 py-1.5">
+              <div key={s} className="flex items-center justify-between rounded-md bg-white/3 px-2.5 py-1.5">
                 <span className="text-slate-300">{SCENARIO_LABELS[s]}</span>
                 <span
                   className={

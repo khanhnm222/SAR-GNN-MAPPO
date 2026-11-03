@@ -34,7 +34,7 @@ export default function StatsTable({
           {rows.map(([name, r]) => {
             const insufficient = r.test === "insufficient_data";
             return (
-              <tr key={name} className="border-t border-[var(--panel-border)]">
+              <tr key={name} className="border-t border-(--panel-border)">
                 <td className="py-1.5 pr-4 font-medium text-slate-200">{METHOD_LABELS[name as Method] ?? name}</td>
                 <td className="py-1.5 pr-4 text-slate-400">
                   {insufficient ? "—" : r.test === "welch_t" ? "Welch's t-test" : "Mann-Whitney U"}
