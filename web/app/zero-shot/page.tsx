@@ -11,8 +11,8 @@ import PanelLayout from "@/components/shell/PanelLayout";
 import SidebarOptionList from "@/components/shell/SidebarOptionList";
 import { fetchManifest, fetchZeroShot } from "@/lib/data";
 import { useLog } from "@/lib/logContext";
-import type { Manifest, Method, Scenario, ZeroShotReport } from "@/lib/types";
-import { METHOD_COLORS, METHOD_LABELS, METHOD_ORDER } from "@/lib/types";
+import type { Manifest, Method, Scenario, ZeroShotMode, ZeroShotReport } from "@/lib/types";
+import { METHOD_COLORS, METHOD_LABELS, METHOD_ORDER, PROPOSED_METHOD, ZERO_SHOT_MODE_LABELS } from "@/lib/types";
 import { SCENARIO_LABELS_SHORT } from "@/lib/scenarios";
 
 type MetricKey = "victim_detection_rate" | "coverage_rate" | "collision_rate";
@@ -27,13 +27,15 @@ export default function ZeroShotPage() {
   const [manifest, setManifest] = useState<Manifest | null>(null);
   const [scenario, setScenario] = useState<Scenario>("easy");
   const [metric, setMetric] = useState<MetricKey>("victim_detection_rate");
+  const [mode, setMode] = useState<ZeroShotMode>("fixed_map");
   const [report, setReport] = useState<ZeroShotReport | null>(null);
   const [loading, setLoading] = useState(true);
-  const [prevScenario, setPrevScenario] = useState(scenario);
+  const [prevKey, setPrevKey] = useState(`${scenario}/${mode}`);
   const log = useLog();
 
-  if (scenario !== prevScenario) {
-    setPrevScenario(scenario);
+  // đặt lại trạng thái tải ngay trong lúc render khi đổi kịch bản/chế độ (không setState trong effect)
+  if (`${scenario}/${mode}` !== prevKey) {
+    setPrevKey(`${scenario}/${mode}`);
     setLoading(true);
   }
 
@@ -42,22 +44,21 @@ export default function ZeroShotPage() {
       setManifest(m);
       if (m && m.scenarios.length) setScenario(m.scenarios[0]);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
     let ignore = false;
-    fetchZeroShot(scenario).then((r) => {
+    fetchZeroShot(scenario, mode).then((r) => {
       if (ignore) return;
       setReport(r);
       setLoading(false);
-      if (r) log.push(`Đã tải zero-shot "${scenario}" — ${Object.keys(r.methods).length} kiến trúc.`);
+      if (r) log.push(`Đã tải zero-shot ${mode === "density" ? "density-controlled" : "fixed-map"} "${scenario}" — ${Object.keys(r.methods).length} kiến trúc.`);
     });
     return () => {
       ignore = true;
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [scenario]);
+  }, [scenario, mode]);
 
   const methods = useMemo(
     () => METHOD_ORDER.filter((m) => report?.methods[m]) as Method[],
@@ -99,6 +100,13 @@ export default function ZeroShotPage() {
           options={(manifest?.scenarios ?? []).map((s) => ({ value: s, label: SCENARIO_LABELS_SHORT[s] }))}
         />
       </AccordionSection>
+      <AccordionSection title="Chế độ" badge="RQ3" defaultOpen>
+        <SidebarOptionList
+          value={mode}
+          onChange={(v) => setMode(v as ZeroShotMode)}
+          options={(Object.keys(ZERO_SHOT_MODE_LABELS) as ZeroShotMode[]).map((k) => ({ value: k, label: ZERO_SHOT_MODE_LABELS[k] }))}
+        />
+      </AccordionSection>
       <AccordionSection title="Chỉ số" badge="METRIC" defaultOpen>
         <SidebarOptionList
           value={metric}
@@ -114,19 +122,21 @@ export default function ZeroShotPage() {
       <div>
         <h1 className="text-xl font-bold text-slate-100">Zero-shot Scalability (RQ3)</h1>
         <p className="mt-1 max-w-3xl text-sm text-slate-400">
-          Đánh giá chính sách đã huấn luyện trên số lượng UAV N khác với lúc huấn luyện, không huấn luyện
-          lại, giữ nguyên kích thước bản đồ. Vạch đứng nét đứt là N lúc huấn luyện. Mọi kiến trúc dùng
-          chung giao thức lấy mẫu; số cũ đo bằng <code>argmax</code> đã bị loại bỏ.
+          Đánh giá chính sách đã huấn luyện trên số lượng UAV N khác với lúc huấn luyện, không huấn luyện lại.
+          Hai chế độ theo đề cương: <strong>fixed-map</strong> giữ nguyên bản đồ (thêm UAV = đàn đông hơn);{" "}
+          <strong>density-controlled</strong> scale diện tích bản đồ và số nạn nhân theo N để giữ mật độ không đổi
+          (tách ảnh hưởng của số lượng UAV khỏi ảnh hưởng của mật độ). Vạch đứng nét đứt là N lúc huấn luyện. Mọi
+          kiến trúc của họ encoder dùng chung giao thức lấy mẫu; MADDPG bị loại vì critic nối cố định N tác nhân.
         </p>
       </div>
 
       {loading && <div className="text-sm text-slate-500">Đang tải...</div>}
 
       {!loading && !report && (
-        <Card title="Chưa có dữ liệu zero-shot">
+        <Card title={`Chưa có dữ liệu zero-shot (${mode === "density" ? "density-controlled" : "fixed-map"})`}>
           <p className="text-xs text-slate-500">
-            Chạy zero-shot cho các checkpoint rồi{" "}
-            <code>python -m scripts.export_web_data --results-dir results_v2</code>.
+            Chạy <code>python -m scripts.run_zero_shot_all --out-dir results_v4 --mode {mode} --seeds 0-9</code> rồi{" "}
+            <code>python -m scripts.export_web_data --results-dir results_v4</code>.
           </p>
         </Card>
       )}
@@ -137,7 +147,18 @@ export default function ZeroShotPage() {
             title={METRICS.find((m) => m.key === metric)!.label}
             subtitle={`Huấn luyện với N=${report.train_n} · trung bình ${
               report.methods[methods[0]]?.n_seeds ?? 0
-            } seed · fixed-map`}
+            } seed · ${mode === "density" ? "density-controlled" : "fixed-map"}${
+              report.env_by_n
+                ? " · bản đồ: " +
+                  report.ns
+                    .map((n) => {
+                      const e = report.env_by_n?.[String(n)];
+                      return e ? `N=${n}→${e.width}×${e.height}` : null;
+                    })
+                    .filter(Boolean)
+                    .join(", ")
+                : ""
+            }`}
           >
             <ResponsiveContainer width="100%" height={340}>
               <LineChart data={chartData} margin={{ top: 8, right: 150, bottom: 18, left: 0 }}>
@@ -176,7 +197,7 @@ export default function ZeroShotPage() {
                     key={m}
                     dataKey={m}
                     stroke={METHOD_COLORS[m]}
-                    strokeWidth={m === "gnn_mappo" ? 2.75 : 1.75}
+                    strokeWidth={m === PROPOSED_METHOD ? 2.75 : 1.75}
                     dot={{ r: 3 }}
                     connectNulls
                   />
@@ -192,7 +213,7 @@ export default function ZeroShotPage() {
             <div className="overflow-x-auto">
               <table className="w-full text-xs">
                 <thead>
-                  <tr className="border-b border-[var(--panel-border-strong)] text-slate-400">
+                  <tr className="border-b border-(--panel-border-strong) text-slate-400">
                     <th className="py-2 pr-4 text-left font-semibold">Phương pháp</th>
                     {report.ns.map((n) => (
                       <th key={n} className="px-3 py-2 text-right font-semibold tabular-nums">
@@ -203,14 +224,14 @@ export default function ZeroShotPage() {
                 </thead>
                 <tbody>
                   {retention.map(({ method, values }) => (
-                    <tr key={method} className="border-b border-[var(--panel-border)]">
+                    <tr key={method} className="border-b border-(--panel-border)">
                       <td className="py-2 pr-4">
                         <span className="flex items-center gap-2">
                           <span
                             className="inline-block h-2 w-2 rounded-full"
                             style={{ background: METHOD_COLORS[method] }}
                           />
-                          <span className={method === "gnn_mappo" ? "font-semibold text-slate-200" : "text-slate-300"}>
+                          <span className={method === PROPOSED_METHOD ? "font-semibold text-cyan-200" : "text-slate-300"}>
                             {METHOD_LABELS[method]}
                           </span>
                         </span>

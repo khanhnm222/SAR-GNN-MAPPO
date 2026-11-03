@@ -9,7 +9,7 @@ import StatsTable from "@/components/StatsTable";
 import { fetchAblation, fetchManifest } from "@/lib/data";
 import { useLog } from "@/lib/logContext";
 import type { AblationReport, Manifest, MetricKey, Scenario } from "@/lib/types";
-import { METRIC_LABELS_VI, METRIC_ORDER } from "@/lib/types";
+import { METHOD_SHORT, METRIC_LABELS_VI, METRIC_ORDER } from "@/lib/types";
 import { SCENARIO_LABELS_SHORT } from "@/lib/scenarios";
 
 export default function AblationPage() {
@@ -29,7 +29,6 @@ export default function AblationPage() {
       setManifest(m);
       if (m && m.scenarios.length) setScenario(m.scenarios[0]);
     });
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -58,12 +57,14 @@ export default function AblationPage() {
   return (
     <PanelLayout sidebar={sidebar}>
       <div>
-        <h1 className="text-xl font-bold text-slate-100">Ablation kiến trúc</h1>
+        <h1 className="text-xl font-bold text-slate-100">Ablation họ encoder</h1>
         <p className="mt-1 max-w-3xl text-sm text-slate-400">
-          Cô lập đóng góp của từng thành phần kiến trúc: MAPPO-MLP (không đồ thị) → MAPPO-GCN (đồ thị, trọng
-          số cố định) → MAPPO-GAT (attention, không có GRU) → GNN-MAPPO (DGAT đầy đủ). Nếu GNN-MAPPO chỉ vượt
-          trội MAPPO-MLP mà không vượt MAPPO-GCN/GAT, cải thiện nên được quy cho GNN nói chung thay vì riêng
-          DGAT (mục 1.5.5).
+          Bốn biến thể của framework GNN-MAPPO dùng chung bộ huấn luyện, chỉ khác bộ mã hoá: MAPPO-MLP (không
+          đồ thị) → MAPPO-GCN (tổng hợp lân cận, trọng số cố định) → MAPPO-GAT (attention GATv2 có đặc trưng
+          cạnh, không GRU) → MAPPO-DGAT (GATv2 + GRU, biến thể đầy đủ). Bảng dưới lấy <strong>MAPPO-DGAT</strong> làm
+          mốc để đo từng thành phần: cột &quot;so với MAPPO-MLP&quot; = cấu trúc đồ thị + attention + GRU; &quot;so với
+          MAPPO-GCN&quot; = attention + GRU; &quot;so với MAPPO-GAT&quot; = riêng GRU (RQ2). Phiên bản đề xuất của framework
+          là MAPPO-GCN — biến thể thắng trong phép so sánh này.
         </p>
       </div>
 
@@ -72,7 +73,7 @@ export default function AblationPage() {
         return (
           <Card key={metric} title={METRIC_LABELS_VI[metric]}>
             {entry?.comparisons ? (
-              <StatsTable comparisons={entry.comparisons} />
+              <StatsTable comparisons={entry.comparisons} targetLabel={METHOD_SHORT.gnn_mappo} />
             ) : (
               <div className="text-xs text-slate-500">Chưa có dữ liệu ablation cho chỉ số này.</div>
             )}
