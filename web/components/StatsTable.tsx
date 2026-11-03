@@ -2,9 +2,16 @@
 
 import clsx from "clsx";
 import type { StatTestResult } from "@/lib/types";
-import { METHOD_LABELS, type Method } from "@/lib/types";
+import { METHOD_LABELS, METHOD_SHORT, type Method } from "@/lib/types";
 
-export default function StatsTable({ comparisons }: { comparisons: Record<string, StatTestResult> }) {
+export default function StatsTable({
+  comparisons,
+  targetLabel = METHOD_SHORT.mappo_gcn,
+}: {
+  comparisons: Record<string, StatTestResult>;
+  /** nhãn của phương pháp được lấy làm mốc (cột mean_a) */
+  targetLabel?: string;
+}) {
   const rows = Object.entries(comparisons);
   if (!rows.length) {
     return <div className="text-xs text-slate-500">Chưa có dữ liệu kiểm định</div>;
@@ -14,10 +21,10 @@ export default function StatsTable({ comparisons }: { comparisons: Record<string
       <table className="w-full text-left text-xs">
         <thead className="text-slate-400">
           <tr>
-            <th className="py-1.5 pr-4">So với baseline</th>
+            <th className="py-1.5 pr-4">So với</th>
             <th className="py-1.5 pr-4">Kiểm định</th>
-            <th className="py-1.5 pr-4">Mean (GNN-MAPPO)</th>
-            <th className="py-1.5 pr-4">Mean (baseline)</th>
+            <th className="py-1.5 pr-4">Mean ({targetLabel})</th>
+            <th className="py-1.5 pr-4">Mean (phương pháp so sánh)</th>
             <th className="py-1.5 pr-4">Cohen&apos;s d</th>
             <th className="py-1.5 pr-4">p-value</th>
             <th className="py-1.5">Ý nghĩa (α hiệu chỉnh)</th>

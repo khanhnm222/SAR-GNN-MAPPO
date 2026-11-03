@@ -5,6 +5,7 @@ import type {
   Manifest,
   Scenario,
   TrajectoryData,
+  ZeroShotMode,
   ZeroShotReport,
 } from "./types";
 
@@ -29,8 +30,8 @@ export const fetchComparison = (scenario: Scenario) =>
 export const fetchAblation = (scenario: Scenario) =>
   getJSON<AblationReport>(`/data/${scenario}/ablation.json`);
 
-export const fetchZeroShot = (scenario: Scenario) =>
-  getJSON<ZeroShotReport>(`/data/${scenario}/zero_shot.json`);
+export const fetchZeroShot = (scenario: Scenario, mode: ZeroShotMode = "fixed_map") =>
+  getJSON<ZeroShotReport>(`/data/${scenario}/${mode === "density" ? "zero_shot_density.json" : "zero_shot.json"}`);
 
 export const fetchTrajectory = (scenario: Scenario, method: string) =>
   getJSON<TrajectoryData>(`/data/${scenario}/trajectories/${method}.json`);

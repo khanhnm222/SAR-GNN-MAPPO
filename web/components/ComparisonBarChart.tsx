@@ -2,12 +2,12 @@
 
 import { Bar, BarChart, CartesianGrid, Cell, ErrorBar, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import type { Comparison, Method, MetricKey } from "@/lib/types";
-import { METHOD_COLORS, METHOD_LABELS, METHOD_ORDER } from "@/lib/types";
+import { METHOD_COLORS, METHOD_LABELS, METHOD_ORDER, METHOD_SHORT } from "@/lib/types";
 
 export default function ComparisonBarChart({ comparison, metric }: { comparison: Comparison; metric: MetricKey }) {
   const data = METHOD_ORDER.filter((m) => comparison.methods[m]?.metrics[metric]?.mean != null).map((m) => {
     const stat = comparison.methods[m]!.metrics[metric]!;
-    return { method: m, label: METHOD_LABELS[m], mean: stat.mean ?? 0, std: stat.std ?? 0 };
+    return { method: m, label: METHOD_SHORT[m], full: METHOD_LABELS[m], mean: stat.mean ?? 0, std: stat.std ?? 0 };
   });
 
   if (!data.length) {
@@ -23,6 +23,7 @@ export default function ComparisonBarChart({ comparison, metric }: { comparison:
         <Tooltip
           contentStyle={{ background: "#0f172a", border: "1px solid #1e293b", fontSize: 12 }}
           formatter={(v) => (typeof v === "number" ? v.toFixed(3) : String(v))}
+          labelFormatter={(_, payload) => (payload && payload[0] ? String((payload[0].payload as { full: string }).full) : "")}
         />
         <Bar dataKey="mean" radius={[4, 4, 0, 0]}>
           <ErrorBar dataKey="std" stroke="#cbd5e1" width={4} strokeWidth={1.5} />

@@ -23,20 +23,54 @@ export const METHOD_LABELS: Record<Method, string> = {
   random_walk: "Random Walk",
   greedy: "Greedy",
   maddpg: "MADDPG",
-  mappo_mlp: "MAPPO-MLP",
-  mappo_gcn: "MAPPO-GCN",
-  mappo_gat: "MAPPO-GAT (no GRU)",
-  gnn_mappo: "GNN-MAPPO (đề xuất)",
+  mappo_mlp: "MAPPO-MLP (không đồ thị)",
+  mappo_gcn: "MAPPO-GCN (đề xuất)",
+  mappo_gat: "MAPPO-GAT (GATv2, không GRU)",
+  gnn_mappo: "MAPPO-DGAT (GATv2 + GRU)",
 };
 
-export const METHOD_GROUP: Record<Method, "heuristic" | "marl" | "ablation" | "proposed"> = {
+/** Tên ngắn dùng trên trục biểu đồ / chú giải. */
+export const METHOD_SHORT: Record<Method, string> = {
+  random_walk: "Random",
+  greedy: "Greedy",
+  maddpg: "MADDPG",
+  mappo_mlp: "MAPPO-MLP",
+  mappo_gcn: "MAPPO-GCN",
+  mappo_gat: "MAPPO-GAT",
+  gnn_mappo: "MAPPO-DGAT",
+};
+
+/** Phiên bản đề xuất của framework GNN-MAPPO (chọn bằng ablation có kiểm soát). */
+export const PROPOSED_METHOD: Method = "mappo_gcn";
+
+/** Họ encoder của framework GNN-MAPPO: cùng bộ huấn luyện MAPPO, chỉ khác bộ mã hoá. */
+export const ENCODER_FAMILY: Method[] = ["mappo_mlp", "mappo_gcn", "mappo_gat", "gnn_mappo"];
+
+export const METHOD_NOTES: Record<Method, string> = {
+  random_walk: "Heuristic — di chuyển ngẫu nhiên, không phối hợp",
+  greedy: "Heuristic — về ô có xác suất nạn nhân cao nhất gần nhất",
+  maddpg: "MARL không đồ thị, actor tất định (Lowe et al. 2017)",
+  mappo_mlp: "Encoder MLP — không đồ thị; đối chứng của họ encoder",
+  mappo_gcn: "Encoder GCN — tổng hợp lân cận trọng số cố định; phiên bản đề xuất",
+  mappo_gat: "Encoder GATv2 có đặc trưng cạnh — cô lập đóng góp của attention",
+  gnn_mappo: "Encoder GATv2 + GRU (DGAT) — biến thể đầy đủ; cô lập đóng góp của bộ nhớ thời gian (RQ2)",
+};
+
+export type MethodGroup = "heuristic" | "marl" | "encoder";
+export const METHOD_GROUP: Record<Method, MethodGroup> = {
   random_walk: "heuristic",
   greedy: "heuristic",
   maddpg: "marl",
-  mappo_mlp: "marl",
-  mappo_gcn: "ablation",
-  mappo_gat: "ablation",
-  gnn_mappo: "proposed",
+  mappo_mlp: "encoder",
+  mappo_gcn: "encoder",
+  mappo_gat: "encoder",
+  gnn_mappo: "encoder",
+};
+export const METHOD_GROUP_ORDER: MethodGroup[] = ["heuristic", "marl", "encoder"];
+export const METHOD_GROUP_LABELS: Record<MethodGroup, string> = {
+  heuristic: "Heuristic (không học)",
+  marl: "MARL không đồ thị",
+  encoder: "Họ encoder GNN-MAPPO — cùng bộ huấn luyện MAPPO, chỉ khác bộ mã hoá",
 };
 
 export const METHOD_COLORS: Record<Method, string> = {
@@ -76,6 +110,7 @@ export interface Manifest {
   scenarios: Scenario[];
   methods: Method[];
   method_labels: Record<string, string>;
+  proposed_method?: Method;
 }
 
 export interface LearningCurvePoint {
@@ -115,7 +150,12 @@ export interface StatTestResult {
 export interface Comparison {
   scenario: Scenario;
   methods: Partial<Record<Method, ComparisonEntry>>;
-  gnn_mappo_vs_baselines?: Partial<Record<MetricKey, Record<string, StatTestResult>>>;
+  /** phương pháp được lấy làm mốc trong kiểm định (phiên bản đề xuất, MAPPO-GCN) */
+  proposed_method?: Method;
+  /** đề xuất so với từng phương pháp còn lại, Bonferroni theo số so sánh */
+  proposed_vs_baselines?: Partial<Record<MetricKey, Record<string, StatTestResult>>>;
+  /** RQ2: MAPPO-DGAT (có GRU) so với MAPPO-GAT (không GRU) */
+  gru_ablation?: Partial<Record<MetricKey, StatTestResult>>;
 }
 
 export interface AblationReport {
@@ -188,11 +228,21 @@ export interface ZeroShotMethod {
   collision_rate: ZeroShotSeries;
 }
 
+export type ZeroShotMode = "fixed_map" | "density";
+
+export const ZERO_SHOT_MODE_LABELS: Record<ZeroShotMode, string> = {
+  fixed_map: "Fixed-map — giữ nguyên bản đồ, chỉ đổi N",
+  density: "Density-controlled — bản đồ và số nạn nhân scale theo N",
+};
+
 /** Cross-architecture zero-shot comparison: every method measured at every N. */
 export interface ZeroShotReport {
   scenario: Scenario;
   train_n: number;
   ns: number[];
+  mode?: ZeroShotMode;
+  /** kích thước môi trường tại từng N (chỉ khác nhau ở chế độ density) */
+  env_by_n?: Record<string, { width: number; height: number; n_victims_range: [number, number]; r_comm: number }> | null;
   eval_protocol: string;
   methods: Partial<Record<Method, ZeroShotMethod>>;
 }

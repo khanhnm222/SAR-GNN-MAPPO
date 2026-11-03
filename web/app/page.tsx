@@ -8,23 +8,13 @@ import PanelLayout from "@/components/shell/PanelLayout";
 import { fetchComparison, fetchManifest } from "@/lib/data";
 import { useLog } from "@/lib/logContext";
 import type { Comparison, Manifest, Scenario } from "@/lib/types";
-import { METHOD_LABELS, METHOD_ORDER } from "@/lib/types";
+import { METHOD_GROUP, METHOD_GROUP_LABELS, METHOD_GROUP_ORDER, METHOD_LABELS, METHOD_NOTES, METHOD_ORDER, PROPOSED_METHOD } from "@/lib/types";
 import { SCENARIO_DIMS } from "@/lib/scenarios";
 
 const SCENARIO_LABELS: Record<Scenario, string> = {
   easy: "Easy",
   medium: "Medium",
   hard: "Hard",
-};
-
-const METHOD_NOTES: Record<string, string> = {
-  random_walk: "Heuristic — di chuyển ngẫu nhiên",
-  greedy: "Heuristic — chọn ô xác suất cao nhất",
-  maddpg: "MARL — không đồ thị (Lowe et al. 2017)",
-  mappo_mlp: "MARL — không đồ thị (Yu et al. 2022)",
-  mappo_gcn: "Ablation kiến trúc — GCN, không attention",
-  mappo_gat: "Ablation kiến trúc — GAT, không GRU",
-  gnn_mappo: "Đề xuất — DGAT (GAT động + GRU)",
 };
 
 export default function DashboardPage() {
@@ -77,11 +67,20 @@ export default function DashboardPage() {
       </AccordionSection>
 
       <AccordionSection title="Phương pháp" badge={`${METHOD_ORDER.length}`}>
-        <div className="space-y-2">
-          {METHOD_ORDER.map((m) => (
-            <div key={m} className="text-xs">
-              <div className="font-semibold text-slate-200">{METHOD_LABELS[m]}</div>
-              <div className="text-[11px] text-slate-500">{METHOD_NOTES[m]}</div>
+        <div className="space-y-3">
+          {METHOD_GROUP_ORDER.map((group) => (
+            <div key={group}>
+              <div className="label-caps mb-1 text-[10px] font-bold text-cyan-300">{METHOD_GROUP_LABELS[group]}</div>
+              <div className="space-y-2">
+                {METHOD_ORDER.filter((m) => METHOD_GROUP[m] === group).map((m) => (
+                  <div key={m} className="text-xs">
+                    <div className={m === PROPOSED_METHOD ? "font-semibold text-cyan-200" : "font-semibold text-slate-200"}>
+                      {METHOD_LABELS[m]}
+                    </div>
+                    <div className="text-[11px] text-slate-500">{METHOD_NOTES[m]}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
         </div>
@@ -104,9 +103,11 @@ export default function DashboardPage() {
         </h1>
         <p className="mt-2 max-w-3xl text-sm text-slate-400">
           Trực quan hóa thực nghiệm cho đề tài <em>&quot;Xây dựng và đánh giá framework GNN-MAPPO cho bài toán
-          phối hợp đàn UAV tìm kiếm và cứu nạn trong môi trường mô phỏng&quot;</em>. Dữ liệu trên trang này được
-          sinh ra từ các lượt huấn luyện và đánh giá thật, chạy ở quy mô rút gọn (POC) so với quy mô đầy đủ của
-          đề cương.
+          phối hợp đàn UAV tìm kiếm và cứu nạn trong môi trường mô phỏng&quot;</em>. GNN-MAPPO là framework huấn luyện
+          tập trung – thực thi phân tán với <strong>bộ mã hoá đồ thị là một họ encoder thay thế được</strong> (MLP, GCN,
+          GATv2, GATv2 + GRU); phiên bản đề xuất <strong>MAPPO-GCN</strong> được chọn bằng ablation có kiểm soát, MAPPO-DGAT
+          (GATv2 + GRU) là biến thể đầy đủ. Số liệu trên trang là bộ chính thức <code>results_v4</code> (140 lượt gieo seed;
+          Easy/Medium 5 seed, Hard 10 seed), đánh giá bằng lấy mẫu trên cùng tập bản đồ test.
         </p>
       </section>
 
