@@ -1,0 +1,2712 @@
+{
+  "meta": {
+    "method": "gnn_mappo",
+    "scenario": "easy",
+    "seed": 0,
+    "legacy_env": false,
+    "obs_dim": 86,
+    "seeded": true
+  },
+  "frames": [
+    {
+      "t": 0,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 22.041084989208798,
+          "y": 25.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 1.0,
+          "action": 10,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 24.95849128063548,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 1.0,
+          "action": 10,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 25.73451614639901,
+          "y": 24.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 1.0,
+          "action": 10,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 28.154444059584822,
+          "y": 25.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 1.0,
+          "action": 10,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.919
+        ],
+        [
+          0,
+          2,
+          0.858
+        ],
+        [
+          0,
+          3,
+          0.765
+        ],
+        [
+          1,
+          2,
+          0.938
+        ],
+        [
+          1,
+          3,
+          0.846
+        ],
+        [
+          2,
+          3,
+          0.906
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.0,
+      "victims_detected": 0,
+      "n_victims": 5
+    },
+    {
+      "t": 1,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 21.041084989208798,
+          "y": 24.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9962,
+          "action": 7,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 26.95849128063548,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.99,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 24.73451614639901,
+          "y": 23.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9962,
+          "action": 7,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 27.154444059584822,
+          "y": 24.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9962,
+          "action": 7,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.836
+        ],
+        [
+          0,
+          2,
+          0.858
+        ],
+        [
+          0,
+          3,
+          0.765
+        ],
+        [
+          1,
+          2,
+          0.876
+        ],
+        [
+          1,
+          3,
+          0.84
+        ],
+        [
+          2,
+          3,
+          0.906
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.031199999153614044,
+      "victims_detected": 0,
+      "n_victims": 5
+    },
+    {
+      "t": 2,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 19.041084989208798,
+          "y": 22.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9829,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 28.95849128063548,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.98,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 22.73451614639901,
+          "y": 21.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9829,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 25.154444059584822,
+          "y": 22.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9829,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.669
+        ],
+        [
+          0,
+          2,
+          0.858
+        ],
+        [
+          0,
+          3,
+          0.765
+        ],
+        [
+          1,
+          2,
+          0.719
+        ],
+        [
+          1,
+          3,
+          0.734
+        ],
+        [
+          2,
+          3,
+          0.906
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.047200001776218414,
+      "victims_detected": 0,
+      "n_victims": 5
+    },
+    {
+      "t": 3,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 17.041084989208798,
+          "y": 20.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9695,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 30.95849128063548,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.97,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 20.73451614639901,
+          "y": 19.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9695,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 26.154444059584822,
+          "y": 21.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.979,
+          "action": 6,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.499
+        ],
+        [
+          0,
+          2,
+          0.858
+        ],
+        [
+          0,
+          3,
+          0.647
+        ],
+        [
+          1,
+          2,
+          0.551
+        ],
+        [
+          1,
+          3,
+          0.613
+        ],
+        [
+          2,
+          3,
+          0.786
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.06480000168085098,
+      "victims_detected": 0,
+      "n_victims": 5
+    },
+    {
+      "t": 4,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 15.041084989208798,
+          "y": 18.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9562,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 32.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.96,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 18.73451614639901,
+          "y": 17.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9562,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 28.154444059584822,
+          "y": 19.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9657,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.327
+        ],
+        [
+          0,
+          2,
+          0.858
+        ],
+        [
+          0,
+          3,
+          0.494
+        ],
+        [
+          1,
+          2,
+          0.381
+        ],
+        [
+          1,
+          3,
+          0.445
+        ],
+        [
+          2,
+          3,
+          0.634
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.08560000360012054,
+      "victims_detected": 1,
+      "n_victims": 5
+    },
+    {
+      "t": 5,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 13.041084989208798,
+          "y": 16.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9429,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 34.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.95,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 16.73451614639901,
+          "y": 15.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9429,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 30.154444059584822,
+          "y": 17.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9524,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.156
+        ],
+        [
+          0,
+          2,
+          0.858
+        ],
+        [
+          0,
+          3,
+          0.34
+        ],
+        [
+          1,
+          2,
+          0.21
+        ],
+        [
+          1,
+          3,
+          0.276
+        ],
+        [
+          2,
+          3,
+          0.481
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.10639999806880951,
+      "victims_detected": 1,
+      "n_victims": 5
+    },
+    {
+      "t": 6,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 11.041084989208798,
+          "y": 14.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9296,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 36.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.94,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 14.73451614639901,
+          "y": 13.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9296,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 32.15444405958482,
+          "y": 15.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9391,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.858
+        ],
+        [
+          0,
+          3,
+          0.187
+        ],
+        [
+          1,
+          2,
+          0.039
+        ],
+        [
+          1,
+          3,
+          0.105
+        ],
+        [
+          2,
+          3,
+          0.328
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.12720000743865967,
+      "victims_detected": 2,
+      "n_victims": 5
+    },
+    {
+      "t": 7,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 9.041084989208798,
+          "y": 12.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9163,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 24.14162905567726,
+          "y": 38.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.93,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 15.73451614639901,
+          "y": 12.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9258,
+          "action": 6,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 34.15444405958482,
+          "y": 13.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9258,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.741
+        ],
+        [
+          0,
+          3,
+          0.033
+        ],
+        [
+          2,
+          3,
+          0.291
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.14800000190734863,
+      "victims_detected": 2,
+      "n_victims": 5
+    },
+    {
+      "t": 8,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 10.041084989208798,
+          "y": 11.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9125,
+          "action": 6,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 25.14162905567726,
+          "y": 37.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9262,
+          "action": 6,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 17.73451614639901,
+          "y": 10.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9125,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 36.15444405958482,
+          "y": 11.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9125,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.704
+        ],
+        [
+          2,
+          3,
+          0.291
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.1656000018119812,
+      "victims_detected": 2,
+      "n_victims": 5
+    },
+    {
+      "t": 9,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 12.041084989208798,
+          "y": 9.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8991,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 27.14162905567726,
+          "y": 35.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.9129,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 19.73451614639901,
+          "y": 8.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8991,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 38.15444405958482,
+          "y": 9.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8991,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.704
+        ],
+        [
+          2,
+          3,
+          0.291
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.18880000710487366,
+      "victims_detected": 2,
+      "n_victims": 5
+    },
+    {
+      "t": 10,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 14.041084989208798,
+          "y": 7.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8858,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 29.14162905567726,
+          "y": 33.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8995,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 21.73451614639901,
+          "y": 6.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8858,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 40.15444405958482,
+          "y": 7.1079631617078824,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8858,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.704
+        ],
+        [
+          2,
+          3,
+          0.291
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.21400000154972076,
+      "victims_detected": 2,
+      "n_victims": 5
+    },
+    {
+      "t": 11,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 16.041084989208798,
+          "y": 5.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8725,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 31.14162905567726,
+          "y": 31.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8862,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 23.73451614639901,
+          "y": 4.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8725,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 42.15444405958482,
+          "y": 5.1079631617078824,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8725,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.704
+        ],
+        [
+          2,
+          3,
+          0.291
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.23919999599456787,
+      "victims_detected": 2,
+      "n_victims": 5
+    },
+    {
+      "t": 12,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 18.041084989208798,
+          "y": 3.0237552620589803,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8592,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 33.14162905567726,
+          "y": 29.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8729,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 25.73451614639901,
+          "y": 2.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8592,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 44.15444405958482,
+          "y": 3.1079631617078824,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8592,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.704
+        ],
+        [
+          2,
+          3,
+          0.291
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.26440000534057617,
+      "victims_detected": 3,
+      "n_victims": 5
+    },
+    {
+      "t": 13,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 20.041084989208798,
+          "y": 1.0237552620589803,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8459,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 35.14162905567726,
+          "y": 27.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8596,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 26.73451614639901,
+          "y": 3.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8554,
+          "action": 4,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 43.15444405958482,
+          "y": 4.1079631617078824,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8554,
+          "action": 5,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.721
+        ],
+        [
+          0,
+          3,
+          0.103
+        ],
+        [
+          1,
+          2,
+          0.016
+        ],
+        [
+          1,
+          3,
+          0.032
+        ],
+        [
+          2,
+          3,
+          0.368
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.2784000039100647,
+      "victims_detected": 3,
+      "n_victims": 5
+    },
+    {
+      "t": 14,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 21.041084989208798,
+          "y": 2.0237552620589803,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8421,
+          "action": 4,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 37.14162905567726,
+          "y": 25.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8463,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 28.73451614639901,
+          "y": 5.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8421,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 41.15444405958482,
+          "y": 6.1079631617078824,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8421,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.211
+        ],
+        [
+          1,
+          2,
+          0.16
+        ],
+        [
+          1,
+          3,
+          0.221
+        ],
+        [
+          2,
+          3,
+          0.522
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.29319998621940613,
+      "victims_detected": 3,
+      "n_victims": 5
+    },
+    {
+      "t": 15,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 23.041084989208798,
+          "y": 4.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8288,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 39.14162905567726,
+          "y": 23.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.833,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 30.73451614639901,
+          "y": 7.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8288,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 39.15444405958482,
+          "y": 8.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8288,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.014
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.361
+        ],
+        [
+          1,
+          2,
+          0.299
+        ],
+        [
+          1,
+          3,
+          0.39
+        ],
+        [
+          2,
+          3,
+          0.676
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.3068000078201294,
+      "victims_detected": 3,
+      "n_victims": 5
+    },
+    {
+      "t": 16,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 25.041084989208798,
+          "y": 6.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8154,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 41.14162905567726,
+          "y": 21.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8197,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 32.73451614639901,
+          "y": 9.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8154,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 37.15444405958482,
+          "y": 10.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8154,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.129
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.508
+        ],
+        [
+          1,
+          2,
+          0.431
+        ],
+        [
+          1,
+          3,
+          0.519
+        ],
+        [
+          2,
+          3,
+          0.83
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.3156000077724457,
+      "victims_detected": 3,
+      "n_victims": 5
+    },
+    {
+      "t": 17,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 27.041084989208798,
+          "y": 8.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8021,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 43.14162905567726,
+          "y": 19.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8063,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 34.73451614639901,
+          "y": 11.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8021,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 35.15444405958482,
+          "y": 12.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.8021,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.229
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.651
+        ],
+        [
+          1,
+          2,
+          0.549
+        ],
+        [
+          1,
+          3,
+          0.569
+        ],
+        [
+          2,
+          3,
+          0.98
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.3255999982357025,
+      "victims_detected": 3,
+      "n_victims": 5
+    },
+    {
+      "t": 18,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 29.041084989208798,
+          "y": 10.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7888,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 45.14162905567726,
+          "y": 17.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.793,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 36.73451614639901,
+          "y": 13.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7888,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 33.15444405958482,
+          "y": 14.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7888,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.31
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.777
+        ],
+        [
+          1,
+          2,
+          0.639
+        ],
+        [
+          1,
+          3,
+          0.516
+        ],
+        [
+          2,
+          3,
+          0.862
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.34040001034736633,
+      "victims_detected": 3,
+      "n_victims": 5
+    },
+    {
+      "t": 19,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 31.041084989208798,
+          "y": 12.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7755,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 47.14162905567726,
+          "y": 15.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7797,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 38.73451614639901,
+          "y": 15.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7755,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 31.15444405958482,
+          "y": 16.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7755,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 18,
+          "detected_by": 1
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.363
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.843
+        ],
+        [
+          1,
+          2,
+          0.677
+        ],
+        [
+          1,
+          3,
+          0.385
+        ],
+        [
+          2,
+          3,
+          0.708
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.3531999886035919,
+      "victims_detected": 4,
+      "n_victims": 5
+    },
+    {
+      "t": 20,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 33.0410849892088,
+          "y": 14.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7622,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 46.14162905567726,
+          "y": 16.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7759,
+          "action": 5,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 40.73451614639901,
+          "y": 17.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7622,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 29.15444405958482,
+          "y": 18.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7622,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 18,
+          "detected_by": 1
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.484
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.783
+        ],
+        [
+          1,
+          2,
+          0.79
+        ],
+        [
+          1,
+          3,
+          0.345
+        ],
+        [
+          2,
+          3,
+          0.554
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.3555999994277954,
+      "victims_detected": 4,
+      "n_victims": 5
+    },
+    {
+      "t": 21,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 35.0410849892088,
+          "y": 16.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7489,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 44.14162905567726,
+          "y": 18.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7626,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 42.73451614639901,
+          "y": 19.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7489,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 27.15444405958482,
+          "y": 20.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7489,
+          "action": 11,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": false,
+          "detected_at_step": null,
+          "detected_by": null
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 18,
+          "detected_by": 1
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.632
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.658
+        ],
+        [
+          1,
+          2,
+          0.937
+        ],
+        [
+          1,
+          3,
+          0.345
+        ],
+        [
+          2,
+          3,
+          0.401
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.3587999939918518,
+      "victims_detected": 4,
+      "n_victims": 5
+    },
+    {
+      "t": 22,
+      "uavs": [
+        {
+          "uid": 0,
+          "x": 37.0410849892088,
+          "y": 18.02375526205898,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7356,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 1,
+          "x": 42.14162905567726,
+          "y": 20.958491280635485,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7493,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 2,
+          "x": 44.73451614639901,
+          "y": 21.79963504061287,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.7356,
+          "action": 11,
+          "blocked": false
+        },
+        {
+          "uid": 3,
+          "x": 28.15444405958482,
+          "y": 21.107963161707882,
+          "z": 1.0,
+          "alive": true,
+          "energy_ratio": 0.745,
+          "action": 4,
+          "blocked": false
+        }
+      ],
+      "victims": [
+        {
+          "x": 30,
+          "y": 17,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 3,
+          "detected_by": 3
+        },
+        {
+          "x": 19,
+          "y": 4,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 11,
+          "detected_by": 0
+        },
+        {
+          "x": 30,
+          "y": 22,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 21,
+          "detected_by": 3
+        },
+        {
+          "x": 48,
+          "y": 16,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 18,
+          "detected_by": 1
+        },
+        {
+          "x": 9,
+          "y": 15,
+          "priority": 1,
+          "detected": true,
+          "detected_at_step": 5,
+          "detected_by": 0
+        }
+      ],
+      "comm_edges": [
+        [
+          0,
+          1,
+          0.774
+        ],
+        [
+          0,
+          2,
+          0.67
+        ],
+        [
+          0,
+          3,
+          0.638
+        ],
+        [
+          1,
+          2,
+          0.895
+        ],
+        [
+          1,
+          3,
+          0.462
+        ],
+        [
+          2,
+          3,
+          0.362
+        ]
+      ],
+      "terrain_new": [],
+      "coverage_rate": 0.3684000074863434,
+      "victims_detected": 5,
+      "n_victims": 5
+    }
+  ],
+  "terrain_occupancy": []
+}
