@@ -1,0 +1,1 @@
+{"meta": {"method": "random_walk", "scenario": "easy", "seed": 8, "legacy_env": false, "obs_dim": 86, "seeded": true}, "curve": [{"global_step": 0, "elapsed": 12.512803316116333, "eval_vdr": 0.37888888888888883, "eval_coverage": 0.40437333285808563}]}

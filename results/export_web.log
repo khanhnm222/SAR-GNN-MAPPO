@@ -1,0 +1,7 @@
+C:\Users\khanh.nguyenminh\AppData\Local\Programs\Python\Python312\Lib\site-packages\scipy\stats\_morestats.py:2199: RuntimeWarning: invalid value encountered in scalar divide
+  return num / den
+exporting from results -> web\public\data
+Ablation report written to results\easy\architecture_ablation.json
+Ablation report written to results\medium\architecture_ablation.json
+Ablation report written to results\hard\architecture_ablation.json
+Web data exported to web\public\data: scenarios=['easy', 'medium', 'hard']
