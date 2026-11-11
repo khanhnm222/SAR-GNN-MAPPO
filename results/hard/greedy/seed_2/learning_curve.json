@@ -1,0 +1,1 @@
+{"meta": {"method": "greedy", "scenario": "hard", "seed": 2, "legacy_env": false, "obs_dim": 86, "seeded": true}, "curve": [{"global_step": 0, "elapsed": 205.89650630950928, "eval_vdr": 0.4069823232323232, "eval_coverage": 0.28392250314354894}]}

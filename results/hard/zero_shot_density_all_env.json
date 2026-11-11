@@ -1,0 +1,47 @@
+{
+  "16": {
+    "width": 200,
+    "height": 200,
+    "n_victims_range": [
+      8,
+      12
+    ],
+    "r_comm": 46.0
+  },
+  "8": {
+    "width": 141,
+    "height": 141,
+    "n_victims_range": [
+      4,
+      6
+    ],
+    "r_comm": 46.0
+  },
+  "12": {
+    "width": 173,
+    "height": 173,
+    "n_victims_range": [
+      6,
+      9
+    ],
+    "r_comm": 46.0
+  },
+  "20": {
+    "width": 224,
+    "height": 224,
+    "n_victims_range": [
+      10,
+      15
+    ],
+    "r_comm": 46.0
+  },
+  "24": {
+    "width": 245,
+    "height": 245,
+    "n_victims_range": [
+      12,
+      18
+    ],
+    "r_comm": 46.0
+  }
+}
