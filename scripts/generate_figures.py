@@ -1,6 +1,6 @@
-"""Sinh hình minh hoạ cho Chương 5 (kiến trúc, luồng thông tin, kết quả v4).
+"""Sinh hình minh hoạ (kiến trúc, luồng thông tin, kết quả v4).
 
-    python -m scripts.make_chapter5_figures  ->  thesis proposals/figures_ch5/*.png
+    python -m scripts.generate_figures  ->  figures/*.png
 
 Số liệu kết quả được đọc trực tiếp từ `web/public/data/*/comparison.json`
 (bản xuất từ results_v4 ngày 10/09/2026, Giai đoạn 20 — Hard n = 10) và
