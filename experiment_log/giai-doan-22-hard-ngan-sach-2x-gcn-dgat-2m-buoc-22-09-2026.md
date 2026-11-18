@@ -14,9 +14,9 @@ nhiều tham số hơn" chưa được đóng ở kịch bản quan trọng nh�
 
 - `run_all_experiments --scenarios hard --methods mappo_gcn gnn_mappo --seeds 5 --steps-override 2000000
   --out-dir results_v4_budget2x --max-jobs 6 --no-postprocess` — 10 lượt, seed 0–4, cùng mã nguồn và cấu
-  hình với `results_v4/hard` chỉ khác tổng số bước (2M thay 1M; lịch giảm LR/entropy trải theo 2M).
+  hình với `results/hard` chỉ khác tổng số bước (2M thay 1M; lịch giảm LR/entropy trải theo 2M).
 - Ước tính wall-clock: GCN ~16 h/lượt, DGAT ~21 h/lượt ở 6 tiến trình song song → ~37–42 h nếu máy không
-  ngủ. Khối bản đồ test 90.000 + seed·1.000 (cùng đợt A của `results_v4/hard`) để so trực tiếp từng seed.
+  ngủ. Khối bản đồ test 90.000 + seed·1.000 (cùng đợt A của `results/hard`) để so trực tiếp từng seed.
 - Câu hỏi cần trả lời: (i) GCN và DGAT tăng bao nhiêu khi gấp đôi bước; (ii) khoảng cách DGAT − GCN có đóng
   lại không; (iii) thứ hạng so với MLP 1M và Greedy có đổi không.
 

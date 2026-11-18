@@ -43,7 +43,7 @@ def seed_everything(seed: int) -> None:
     unseeded global RNG: the `--seed` argument only controlled the environment
     and the numpy minibatch shuffle. Runs were therefore NOT reproducible,
     contrary to the seed protocol of muc 1.5.5. Measured effect of this: with
-    the code byte-identical between results_v3_rcomm and results_v4, MAPPO-MLP
+    the code byte-identical between results_v3_rcomm and results, MAPPO-MLP
     on Easy moved 0.877 -> 0.860 and MAPPO-GCN 0.942 -> 0.925 purely from
     unseeded initialisation -- a shift comparable to the between-seed std.
 

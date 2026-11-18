@@ -17,7 +17,7 @@ cản tĩnh (để κ có nghĩa) và chưa bão hoà như Easy.
   phần vào `results_v4_reward_ablation/no_<comp>/medium/mappo_gcn/seed_k`. Smoke test 3k bước: OK, meta ghi `reward_zero`.
 - Lệnh: `run_all_experiments --scenarios medium --methods mappo_gcn --seeds 5 --out-dir results_v4_reward_ablation
   --reward-zero cover victim collision energy --max-jobs 6 --no-postprocess` — 20 lượt, seed 0–4, 800k bước, cùng bản
-  đồ test 90.000 + seed·1.000 với `results_v4/medium/mappo_gcn` (đối chứng đầy đủ, n = 10; so theo cặp trên seed 0–4).
+  đồ test 90.000 + seed·1.000 với `results/medium/mappo_gcn` (đối chứng đầy đủ, n = 10; so theo cặp trên seed 0–4).
 - Kỳ vọng trước khi chạy (ghi để kiểm sau): bỏ β (nạn nhân) → VDR sụp mạnh nhưng Coverage có thể giữ (chính sách quét
   đơn thuần); bỏ α (bao phủ) → tín hiệu thưa, VDR/Coverage giảm; bỏ κ (va chạm) → Collision Rate tăng rõ, VDR ít đổi;
   bỏ δ (năng lượng) → gần như không đổi (δ nhỏ, UAV vẫn cạn pin theo mô hình).
@@ -32,7 +32,7 @@ cản tĩnh (để κ có nghĩa) và chưa bão hoà như Easy.
   Event Log (System/Application, 06:30–06:50) không có sự kiện nào; nguyên nhân chưa rõ. Chạy lại riêng seed 4 lúc 15:00
   (`reward_ablation2.log`, `RWABL2_DONE`, rồi `reward_ablation_report` tự chạy). Báo cáo tạm (n = 4 cho δ) đã chèn.
 - 26/09 15:58: seed 4 `no_energy` chạy lại OK (3.523 s khi chạy một mình). **20/20 lượt xong**, báo cáo tự động bên dưới
-  là số cuối (đối chứng = `results_v4/medium/mappo_gcn` seed 0–4, cùng bản đồ test, kiểm định theo cặp).
+  là số cuối (đối chứng = `results/medium/mappo_gcn` seed 0–4, cùng bản đồ test, kiểm định theo cặp).
 
 ### Kết luận Giai đoạn 23
 

@@ -3,7 +3,7 @@
 # Giai đoạn 16 — Gieo seed toàn bộ, và một kết luận phải điều chỉnh (07/09/2026)
 
 Chạy lại 41 lượt chưa gieo seed (Easy 27 + Medium 14; Hard đã gieo đủ 27/27 nên
-giữ nguyên), 8,5 giờ. **`results_v4/` nay có 81/81 lượt đều tái lập được.** Bản
+giữ nguyên), 8,5 giờ. **`results/` nay có 81/81 lượt đều tái lập được.** Bản
 cũ lưu ở `results_v4_unseeded/`.
 
 ### Bảng cuối cùng (VDR ± std liên-seed, n=5, toàn bộ đã gieo seed)

@@ -281,7 +281,7 @@ if __name__ == "__main__":
     import argparse
 
     ap = argparse.ArgumentParser(description=__doc__)
-    ap.add_argument("--out-dir", default="results", help="thu muc ket qua (vd results_v4)")
+    ap.add_argument("--out-dir", default="results", help="thu muc ket qua (vd results)")
     ap.add_argument("--scenarios", nargs="*", default=None)
     a = ap.parse_args()
     generate_all_figures(a.out_dir, a.scenarios)

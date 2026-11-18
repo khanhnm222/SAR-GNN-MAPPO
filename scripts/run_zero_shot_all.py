@@ -6,8 +6,8 @@ Chay tat ca (kien truc x seed x N) roi gop thanh mot file
 method -> seed -> N -> metrics, la dang `scripts.export_web_data` doc.
 
 Vi du:
-    OMP_NUM_THREADS=1 python -m scripts.run_zero_shot_all --out-dir results_v4 --mode fixed_map --seeds 0-9
-    OMP_NUM_THREADS=1 python -m scripts.run_zero_shot_all --out-dir results_v4 --mode density --seeds 0-9 --workers 3
+    OMP_NUM_THREADS=1 python -m scripts.run_zero_shot_all --out-dir results --mode fixed_map --seeds 0-9
+    OMP_NUM_THREADS=1 python -m scripts.run_zero_shot_all --out-dir results --mode density --seeds 0-9 --workers 3
 
 Idempotent: ket qua tung (scenario, method, seed) duoc cache trong
 `<out_dir>/<scenario>/zero_shot_cache/<mode>_<method>_seed<seed>.json`; chay lai
@@ -57,7 +57,7 @@ def job(args):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--out-dir", default="results_v4")
+    ap.add_argument("--out-dir", default="results")
     ap.add_argument("--scenarios", nargs="*", default=list(TEST_N))
     ap.add_argument("--methods", nargs="*", default=METHODS)
     ap.add_argument("--seeds", default="0-4", help="vd 0-4 hoac 0,1,2 hoac 0-9")

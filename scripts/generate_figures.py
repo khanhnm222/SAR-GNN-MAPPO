@@ -3,8 +3,8 @@
     python -m scripts.generate_figures  ->  figures/*.png
 
 Số liệu kết quả được đọc trực tiếp từ `web/public/data/*/comparison.json`
-(bản xuất từ results_v4 ngày 10/09/2026, Giai đoạn 20 — Hard n = 10) và
-`results_v4/*/zero_shot_all.json`; các con số của mục "tiến trình sửa lỗi"
+(bản xuất từ results ngày 10/09/2026, Giai đoạn 20 — Hard n = 10) và
+`results/*/zero_shot_all.json`; các con số của mục "tiến trình sửa lỗi"
 được chép từ EXPERIMENT_LOG.md (Giai đoạn 6, 8, 9, 12, 13, 15) vì các bộ
 kết quả trung gian nằm ở nhiều thư mục khác nhau.
 
@@ -145,7 +145,7 @@ def fig_info_flow():
         "50 / 86 chiều quan sát là hằng số · seed chưa được gieo", fc=RF, ec=RED, fs=11.5)
 
     b.set_xlim(0, 100); b.set_ylim(0, 76); b.axis("off")
-    b.set_title("(b) Sau rà soát (Giai đoạn 8–20, results_v4)", fontsize=12.5, fontweight="bold", color=NAVY, loc="left")
+    b.set_title("(b) Sau rà soát (Giai đoạn 8–20, results)", fontsize=12.5, fontweight="bold", color=NAVY, loc="left")
     for x in (14, 38, 62, 86):
         box(b, x - 10, 63, 20, 11, "UAV\nbản đồ riêng", fc=GF, ec=GREEN)
     b.plot([24, 28], [68.5, 68.5], color=NAVY, lw=2.6); b.text(26, 59.5, "≤ r_comm", ha="center", fontsize=11, color=NAVY)
@@ -193,7 +193,7 @@ def _fig_zero_shot(fname, out_name, xlabel):
     fig, axes = plt.subplots(3, 1, figsize=(FIG_W, 8.8))
     train_n = {"easy": 4, "medium": 8, "hard": 16}
     for k, (ax, sc) in enumerate(zip(axes, ["easy", "medium", "hard"])):
-        d = json.load(open(f"results_v4/{sc}/{fname}", encoding="utf-8"))
+        d = json.load(open(f"results/{sc}/{fname}", encoding="utf-8"))
         n_seeds = 0
         for m in ["mappo_mlp", "mappo_gcn", "mappo_gat", "gnn_mappo"]:
             seeds = d[m]; n_seeds = max(n_seeds, len(seeds))
@@ -218,7 +218,7 @@ def _fig_zero_shot(fname, out_name, xlabel):
 def fig_zero_shot():
     _fig_zero_shot("zero_shot_all.json", "fig5_7_zero_shot.png",
                    "Số UAV khi kiểm tra N (fixed-map: bản đồ giữ nguyên; {n} seed × 10 episode)")
-    if os.path.exists("results_v4/hard/zero_shot_density_all.json"):
+    if os.path.exists("results/hard/zero_shot_density_all.json"):
         _fig_zero_shot("zero_shot_density_all.json", "fig5_8_zero_shot_density.png",
                        "Số UAV khi kiểm tra N (density-controlled: diện tích và số nạn nhân scale theo N; {n} seed × 10 episode)")
 

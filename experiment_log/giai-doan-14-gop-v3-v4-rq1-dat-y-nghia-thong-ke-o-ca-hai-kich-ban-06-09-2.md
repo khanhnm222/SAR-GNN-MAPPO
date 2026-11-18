@@ -2,9 +2,9 @@
 
 # Giai đoạn 14 — Gộp v3 + v4: RQ1 đạt ý nghĩa thống kê ở CẢ HAI kịch bản (06/09/2026)
 
-`results_v4` Easy và Medium đã xong (54/81; Hard đang chạy).
+`results` Easy và Medium đã xong (54/81; Hard đang chạy).
 
-### Kết quả Medium (`results_v4`, có BPTT)
+### Kết quả Medium (`results`, có BPTT)
 
 | Phương pháp | VDR | Coverage | TTFD |
 |---|---|---|---|
@@ -19,7 +19,7 @@
 ### Gộp v3 + v4 để tăng lực thống kê (n=10)
 
 BPTT **chỉ** ảnh hưởng tới encoder hồi tiếp, nên với MAPPO-MLP, MAPPO-GCN và
-MAPPO-GAT thì `results_v3_rcomm` và `results_v4` là **cùng một code chạy với
+MAPPO-GAT thì `results_v3_rcomm` và `results` là **cùng một code chạy với
 khởi tạo khác nhau** — tức 10 lần chạy độc lập mỗi phương pháp. Gộp lại là hợp lệ
 và tăng lực thống kê đáng kể.
 
@@ -54,7 +54,7 @@ thuyết. Tổng hợp có trọng số cố định (GCN) thắng attention có
 Sau khi sửa BPTT, GRU không còn gây hại có ý nghĩa thống kê, nhưng cũng không
 mang lại lợi ích. Cả hai kịch bản đều cho cỡ hiệu ứng âm nhẹ.
 
-### Trạng thái seed của `results_v4`
+### Trạng thái seed của `results`
 
 | Kịch bản | Đã gieo seed |
 |---|---|

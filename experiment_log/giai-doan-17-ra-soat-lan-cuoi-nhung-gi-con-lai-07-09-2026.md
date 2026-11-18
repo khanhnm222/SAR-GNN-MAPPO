@@ -2,7 +2,7 @@
 
 # Giai đoạn 17 — Rà soát lần cuối: những gì còn lại (07/09/2026)
 
-Sau khi `results_v4/` đã gieo seed đủ 81/81, rà soát lại toàn bộ với câu hỏi
+Sau khi `results/` đã gieo seed đủ 81/81, rà soát lại toàn bộ với câu hỏi
 "còn gì có thể làm sai lệch kết luận không". Tìm thêm bốn điểm.
 
 ### ⑧ Số tham số chênh nhau 3 lần giữa các kiến trúc — nhiễu cho thứ hạng GCN > GAT > DGAT

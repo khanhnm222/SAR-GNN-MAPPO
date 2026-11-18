@@ -8,13 +8,13 @@
 42 giờ wall-clock (bắt đầu 07:07 ngày 08/09; 6 tiến trình song song, DGAT
 seed 9 chạy cuối cùng một mình). Không lượt nào lỗi; kiểm tra sức khoẻ 4 seed
 DGAT cuối trong lúc chạy (phần thưởng cuộn theo mốc bước, lịch LR/entropy, KL,
-clip-fraction) đều nằm trong dải của 6 seed đã xong. `results_v4/hard/` nay có
-70 lượt, `results_v4/` tổng 140 lượt, toàn bộ gieo seed.
+clip-fraction) đều nằm trong dải của 6 seed đã xong. `results/hard/` nay có
+70 lượt, `results/` tổng 140 lượt, toàn bộ gieo seed.
 
-Hậu xử lý: `evaluation.ablation.save_ablation_report('results_v4','hard')`
+Hậu xử lý: `evaluation.ablation.save_ablation_report('results','hard')`
 (bản n = 5 cũ lưu `architecture_ablation_n5_seed0-4.json`),
-`evaluation.plots --out-dir results_v4`, `scripts.export_web_data
---results-dir results_v4` (web/public/data/hard có 10 giá trị/phương pháp),
+`evaluation.plots --out-dir results`, `scripts.export_web_data
+--results-dir results` (web/public/data/hard có 10 giá trị/phương pháp),
 `scripts.make_chapter5_figures` (fig5_4 nay vẽ Hard n = 10; tiêu đề đã sửa).
 
 ### Bảng Hard n = 10 (mean ± sd liên-seed)

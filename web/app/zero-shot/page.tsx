@@ -135,8 +135,8 @@ export default function ZeroShotPage() {
       {!loading && !report && (
         <Card title={`Chưa có dữ liệu zero-shot (${mode === "density" ? "density-controlled" : "fixed-map"})`}>
           <p className="text-xs text-slate-500">
-            Chạy <code>python -m scripts.run_zero_shot_all --out-dir results_v4 --mode {mode} --seeds 0-9</code> rồi{" "}
-            <code>python -m scripts.export_web_data --results-dir results_v4</code>.
+            Chạy <code>python -m scripts.run_zero_shot_all --out-dir results --mode {mode} --seeds 0-9</code> rồi{" "}
+            <code>python -m scripts.export_web_data --results-dir results</code>.
           </p>
         </Card>
       )}

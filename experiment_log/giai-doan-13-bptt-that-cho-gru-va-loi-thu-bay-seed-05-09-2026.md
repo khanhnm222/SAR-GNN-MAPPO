@@ -27,7 +27,7 @@ thực cho RQ2 nay là *"bộ nhớ thời gian không đóng góp gì đo đư�
 
 ### Lỗi thứ bảy: `torch.manual_seed` chưa từng được gọi
 
-So sánh `results_v3_rcomm` với `results_v4` ở Easy cho thấy các phương pháp
+So sánh `results_v3_rcomm` với `results` ở Easy cho thấy các phương pháp
 **không đổi một dòng code nào** vẫn ra kết quả khác:
 
 | Phương pháp | v3 | v4 | Chênh |
@@ -48,13 +48,13 @@ giữa các seed** (0,016–0,060) — nghĩa là một phần đáng kể của
 gieo `random`, `numpy` và `torch`; truyền `seed` cho controller đánh giá.
 Kiểm chứng: hai lần chạy cùng seed cho kết quả **trùng khớp từng episode**.
 
-**Xuất xứ của `results_v4/`** (phải ghi rõ trong luận văn): Easy chạy xong
+**Xuất xứ của `results/`** (phải ghi rõ trong luận văn): Easy chạy xong
 trước khi có bản sửa này nên chưa gieo seed; Medium chạy vắt qua thời điểm sửa
 nên hỗn hợp; Hard chạy hoàn toàn sau khi sửa nên đã gieo. Muốn có một bộ tái
 lập được hoàn toàn thì chạy lại Easy (~4,7 giờ) và Medium (~12,7 giờ) sau khi
 Hard xong.
 
-### Kết quả Easy của `results_v4` (27/27)
+### Kết quả Easy của `results` (27/27)
 
 | Phương pháp | VDR | Coverage | TTFD |
 |---|---|---|---|

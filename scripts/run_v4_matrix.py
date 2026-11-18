@@ -1,5 +1,5 @@
 """Ma tran thuc nghiem CUOI CUNG: ca ba kich ban, moi truong da sua het sau lan
-ra soat 03-05/09/2026, ghi vao results_v4/.
+ra soat 03-05/09/2026, ghi vao results/.
 
 Khac voi results_v3_rcomm/:
   * truncated BPTT (`bptt_len=8`) cho encoder hoi tiep, nen GNN-MAPPO (DGAT co
@@ -23,7 +23,7 @@ import subprocess
 import sys
 import time
 
-OUT_DIR = "results_v4"
+OUT_DIR = "results"
 PHASES = [
     ("easy", None),          # 500k tu training/configs/easy.yaml
     ("medium", 800_000),

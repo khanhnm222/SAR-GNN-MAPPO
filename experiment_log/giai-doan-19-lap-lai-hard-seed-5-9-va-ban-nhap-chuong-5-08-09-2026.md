@@ -7,12 +7,12 @@
 Vì mọi RNG nay đã gieo seed, chạy lại seed 0–4 sẽ cho **đúng cùng số**, không
 phải một mẫu độc lập. Đợt lặp lại dùng **seed 5–9** (thêm `--seed-offset` cho
 `scripts/run_all_experiments.py`), 7 phương pháp × 5 seed = 35 lượt, 1M bước,
-ghi vào cùng `results_v4/hard/`. Khi xong, Hard có n = 10 và Bảng 5.11–5.12 của
+ghi vào cùng `results/hard/`. Khi xong, Hard có n = 10 và Bảng 5.11–5.12 của
 Chương 5 được bổ sung cột gộp. Ước tính ~21 giờ.
 
 ### Chương 5
 
-`CHUONG5_THUC_NGHIEM.md` được viết lại toàn bộ theo `results_v4/` cuối
+`CHUONG5_THUC_NGHIEM.md` được viết lại toàn bộ theo `results/` cuối
 (105 lượt gieo seed, heuristic 5 seed trên cùng tập test): 19 bảng, 8 hình, mọi
 số liệu và kiểm định thay bằng bộ cuối; bổ sung mục 5.2.4 (bốn lỗi giao thức),
 5.4.4 (kiểm chứng ngân sách 2×), 5.6 (biến thiên giữa đợt); sửa các phát biểu

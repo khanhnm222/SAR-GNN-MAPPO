@@ -25,7 +25,7 @@ cả hai chế độ với seed 0–9 cho mọi kịch bản. Hard ngân sách 2
 ### Cấu hình
 
 - Medium: `run_all_experiments --scenarios medium --seeds 5 --seed-offset 5
-  --steps-override 800000 --out-dir results_v4 --max-jobs 6 --no-postprocess`
+  --steps-override 800000 --out-dir results --max-jobs 6 --no-postprocess`
   (35 lượt). Easy: như trên, không `--steps-override` (500k), 35 lượt. Cùng
   mã nguồn và cấu hình với seed 0–4; khối bản đồ test 95.000–99.999.
 - Ước tính: Medium ~11–13 giờ, Easy ~5–6 giờ (tổng tuần tự ~17 giờ).
@@ -60,7 +60,7 @@ N) đặt cạnh `zero_shot_all.json`; web đọc `zero_shot_density.json`.
   DGAT để kết luận RQ2 ở Medium.
 - 22/09 01:46: toàn bộ chuỗi hoàn tất — Easy 35/35 (xong ~00:30), zero-shot fixed-map 120 tác vụ + density 120 tác vụ
   (4 kiến trúc × 10 seed × 3 kịch bản), web đã xuất lại; 01:52 bộ chờ báo cáo sinh lại bảng/hình dưới đây,
-  `evaluation.plots` và hình Chương 5. Không có lần ngủ máy nào sau 16:55 ngày 21/09. `results_v4/` nay có
+  `evaluation.plots` và hình Chương 5. Không có lần ngủ máy nào sau 16:55 ngày 21/09. `results/` nay có
   **210 lượt** (7 phương pháp × seed 0–9 × 3 kịch bản), mọi kịch bản đều là thiết kế hai đợt độc lập n = 10.
 
 ### Kết luận Giai đoạn 21

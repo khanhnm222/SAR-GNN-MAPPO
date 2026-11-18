@@ -42,7 +42,7 @@ nhất kéo nó lên ngang mức đó.
 Ở Easy và Medium mọi phương pháp MAPPO vượt Greedy áp đảo (p ≤ 0,0016,
 d ≥ +3,0).
 
-### `results_v4/` — trạng thái cuối
+### `results/` — trạng thái cuối
 
 105/105 lượt (7 phương pháp × 5 seed × 3 kịch bản), **toàn bộ đã gieo seed**,
 toàn bộ đánh giá trên cùng tập bản đồ test, zero-shot đủ ba kịch bản.

@@ -106,7 +106,7 @@ export default function DashboardPage() {
           phối hợp đàn UAV tìm kiếm và cứu nạn trong môi trường mô phỏng&quot;</em>. GNN-MAPPO là framework huấn luyện
           tập trung – thực thi phân tán với <strong>bộ mã hoá đồ thị là một họ encoder thay thế được</strong> (MLP, GCN,
           GATv2, GATv2 + GRU); phiên bản đề xuất <strong>MAPPO-GCN</strong> được chọn bằng ablation có kiểm soát, MAPPO-DGAT
-          (GATv2 + GRU) là biến thể đầy đủ. Số liệu trên trang là bộ chính thức <code>results_v4</code> (140 lượt gieo seed;
+          (GATv2 + GRU) là biến thể đầy đủ. Số liệu trên trang là bộ chính thức <code>results</code> (140 lượt gieo seed;
           Easy/Medium 5 seed, Hard 10 seed), đánh giá bằng lấy mẫu trên cùng tập bản đồ test.
         </p>
       </section>

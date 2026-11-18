@@ -1,6 +1,6 @@
 [← Giai đoạn 14](giai-doan-14-gop-v3-v4-rq1-dat-y-nghia-thong-ke-o-ca-hai-kich-ban-06-09-2.md) · [↑ Mục lục](../EXPERIMENT_LOG.md) · [Giai đoạn 16 →](giai-doan-16-gieo-seed-toan-bo-va-mot-ket-luan-phai-dieu-chinh-07-09-2026.md)
 
-# Giai đoạn 15 — Ma trận đầy đủ ba kịch bản (`results_v4/`, 07/09/2026)
+# Giai đoạn 15 — Ma trận đầy đủ ba kịch bản (`results/`, 07/09/2026)
 
 81 lượt (Easy 500k · Medium 800k · Hard 1M bước; 7 phương pháp × 5 seed),
 **52,3 giờ** wall với 6 job song song. Cộng zero-shot cho cả ba kịch bản

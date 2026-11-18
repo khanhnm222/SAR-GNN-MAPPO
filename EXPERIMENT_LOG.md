@@ -30,7 +30,7 @@ nguyên vẹn, chỉ chia lại theo giai đoạn — không có đoạn nào b�
 | [12](experiment_log/giai-doan-12-easy-voi-r-comm-26-do-thi-co-tac-dung-nhung-khong-phai-dgat-.md) | Easy với `r_comm=26` | 05/09/2026 | Đồ thị **CÓ** tác dụng (GCN > MLP) nhưng **không phải DGAT** là kiến trúc hưởng lợi nhiều nhất | Xong |
 | [13](experiment_log/giai-doan-13-bptt-that-cho-gru-va-loi-thu-bay-seed-05-09-2026.md) | BPTT thật cho GRU, lỗi thứ bảy: seed | 05/09/2026 | GRU trước đó chưa từng được huấn luyện đúng (BPTT=1); **lỗi 7**: torch chưa gieo seed | Xong |
 | [14](experiment_log/giai-doan-14-gop-v3-v4-rq1-dat-y-nghia-thong-ke-o-ca-hai-kich-ban-06-09-2.md) | Gộp v3 + v4: RQ1 đạt ý nghĩa ở cả hai kịch bản | 06/09/2026 | Gộp các đợt chạy độc lập cùng mã nguồn để nâng n; GCN vs MLP đạt ý nghĩa ở Easy và Medium | Xong |
-| [15](experiment_log/giai-doan-15-ma-tran-day-du-ba-kich-ban-results-v4-07-09-2026.md) | Ma trận đầy đủ ba kịch bản (`results_v4/`) | 07/09/2026 | 81 lượt (Easy/Medium/Hard), 52,3 giờ; cộng zero-shot cả ba kịch bản | Xong |
+| [15](experiment_log/giai-doan-15-ma-tran-day-du-ba-kich-ban-results-v4-07-09-2026.md) | Ma trận đầy đủ ba kịch bản (`results/`) | 07/09/2026 | 81 lượt (Easy/Medium/Hard), 52,3 giờ; cộng zero-shot cả ba kịch bản | Xong |
 | [16](experiment_log/giai-doan-16-gieo-seed-toan-bo-va-mot-ket-luan-phai-dieu-chinh-07-09-2026.md) | Gieo seed toàn bộ, một kết luận phải điều chỉnh | 07/09/2026 | Chạy lại 41 lượt chưa gieo seed; kết luận "GCN đạt Bonferroni ở Medium" đổi khi gieo seed lại | Xong |
 | [17](experiment_log/giai-doan-17-ra-soat-lan-cuoi-nhung-gi-con-lai-07-09-2026.md) | Rà soát lần cuối: những gì còn lại | 07/09/2026 | Bốn lỗi giao thức: nhiễu số tham số, heuristic chấm sai tập test, 1 seed, seed trượt vào tập test | Xong |
 | [18](experiment_log/giai-doan-18-hai-kiem-chung-cuoi-08-09-2026.md) | Hai kiểm chứng cuối | 08/09/2026 | Ngân sách 2× ở Easy: khoảng cách GCN–DGAT không đóng lại → do kiến trúc, không do ngân sách | Xong |
@@ -42,7 +42,7 @@ nguyên vẹn, chỉ chia lại theo giai đoạn — không có đoạn nào b�
 
 ## Tổng quan kết quả cuối cùng
 
-Bộ số liệu chính thức trích dẫn trong luận văn là `results_v4/` (210 lượt: 7
+Bộ số liệu chính thức trích dẫn trong luận văn là `results/` (210 lượt: 7
 phương pháp × seed 0–9 × 3 kịch bản — hai đợt seed độc lập ở mọi kịch bản; zero-shot
 fixed-map và density-controlled, 10 seed). Xem
 [Giai đoạn 21](experiment_log/giai-doan-21-lap-lai-medium-easy-seed-5-9-va-zero-shot-density-20-09-2026.md)
@@ -59,7 +59,7 @@ Mười một lỗi được phát hiện và sửa xuyên suốt Giai đoạn 8
 ## Phụ lục: thư mục kết quả theo từng giai đoạn (Giai đoạn 1–7)
 
 Bảng dưới ghi lại thư mục kết quả cho các đợt chạy sớm (trước khi chuyển sang
-quy ước đặt tên `results_v2/` → `results_v4/` từ Giai đoạn 9 trở đi); xem từng
+quy ước đặt tên `results_v2/` → `results/` từ Giai đoạn 9 trở đi); xem từng
 file giai đoạn để biết thư mục kết quả của Giai đoạn 8 trở về sau.
 
 | Thư mục | Giai đoạn | Ghi chú |

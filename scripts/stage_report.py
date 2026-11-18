@@ -272,7 +272,7 @@ def insert_block(log_path, tag, body):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--out-dir", default="results_v4")
+    ap.add_argument("--out-dir", default="results")
     ap.add_argument("--scenario", choices=["easy", "medium", "hard"])
     ap.add_argument("--batch-a", default="0-4"); ap.add_argument("--batch-b", default="5-9")
     ap.add_argument("--zero-shot", action="store_true")
