@@ -61,6 +61,13 @@ Mở `http://localhost:3200` — các trang: Tổng quan, Huấn luyện, So sá
 Baseline, Ablation, Zero-shot, Phát lại mô phỏng. Xem
 [web/README.vi.md](web/README.vi.md) để biết cấu trúc dữ liệu.
 
+## Nghiên cứu suy giảm liên lạc
+
+Mã nguồn, kết quả thô và script sinh hình/bảng của nghiên cứu suy giảm liên lạc lúc kiểm tra
+(*Disentangling Communication Loss in Graph-Based MARL for UAV Search and Rescue*) nằm trong
+[`comm_robustness/`](comm_robustness/README.md). Nghiên cứu này đánh giá các checkpoint
+trong `results/` và không sửa mã nguồn ở trên.
+
 ---
 
 ## Sau đợt review 03/09/2026

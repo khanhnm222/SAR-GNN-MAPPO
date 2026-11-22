@@ -61,6 +61,13 @@ Open `http://localhost:3200`. Pages: Overview, Training, Baseline comparison,
 Ablation, Zero-shot, Simulation replay. See [web/README.md](web/README.md) for
 the data layout.
 
+## Communication-degradation study
+
+The code, raw results and figure/table scripts of the test-time communication-degradation study
+(*Disentangling Communication Loss in Graph-Based MARL for UAV Search and Rescue*) are in
+[`comm_robustness/`](comm_robustness/README.md). It evaluates the checkpoints stored in
+`results/` and does not modify the code above.
+
 ---
 
 ## After the 03/09/2026 review
