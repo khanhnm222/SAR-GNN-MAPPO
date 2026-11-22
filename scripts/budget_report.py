@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Kiem chung ngan sach 2x: so sanh checkpoint huan luyen 2x buoc (results_v4_budget2x) voi
+"""Kiem chung ngan sach 2x: so sanh checkpoint huan luyen 2x buoc (results_budget2x) voi
 1x buoc (results) cho tung kien truc, cung seed va cung bo ban do test; do khoang cach
 DGAT - GCN o 1x va 2x. Sinh CSV + PNG vao experiment_log/assets/<tag>/budget2x_<sc>/ va chen
 khoi Markdown vao file nhat ky giua `<!-- AUTO:budget-<sc> -->` ... `<!-- /AUTO:budget-<sc> -->`.
@@ -146,7 +146,7 @@ def report(base_dir, dbl_dir, sc, tag):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--base-dir", default="results"); ap.add_argument("--double-dir", default="results_v4_budget2x")
+    ap.add_argument("--base-dir", default="results"); ap.add_argument("--double-dir", default="results_budget2x")
     ap.add_argument("--scenario", default="hard"); ap.add_argument("--log", required=True); ap.add_argument("--tag", default=None)
     a = ap.parse_args()
     logs = glob.glob(a.log); assert len(logs) == 1, logs

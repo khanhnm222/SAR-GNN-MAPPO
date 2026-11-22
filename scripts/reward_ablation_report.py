@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """Ablation ham thuong (Giai doan 23): so sanh moi bien the bo mot thanh phan thuong
-(results_v4_reward_ablation/no_<comp>/<sc>/<method>/seed_k) voi doi chung day du
+(results_reward_ablation/no_<comp>/<sc>/<method>/seed_k) voi doi chung day du
 (results/<sc>/<method>/seed_k), cung seed va cung bo ban do test -> kiem dinh theo cap.
 Sinh CSV + PNG vao experiment_log/assets/<tag>/reward_ablation_<sc>/ va chen khoi Markdown
 vao nhat ky giua `<!-- AUTO:reward-ablation -->` ... `<!-- /AUTO:reward-ablation -->`.
@@ -115,7 +115,7 @@ def report(base_dir, abl_dir, sc, method, tag):
 
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
-    ap.add_argument("--base-dir", default="results"); ap.add_argument("--abl-dir", default="results_v4_reward_ablation")
+    ap.add_argument("--base-dir", default="results"); ap.add_argument("--abl-dir", default="results_reward_ablation")
     ap.add_argument("--scenario", default="medium"); ap.add_argument("--method", default="mappo_gcn")
     ap.add_argument("--log", required=True); ap.add_argument("--tag", default=None)
     a = ap.parse_args()
